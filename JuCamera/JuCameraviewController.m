@@ -21,9 +21,16 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-     [juCaptureSession startRunning];
+    if (juCaptureSession) {
+        [juCaptureSession startRunning];
+    }
 }
-
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    if (juCaptureSession) {
+        [juCaptureSession stopRunning];
+    }
+}
 -(void)setJuSessionPreset:(NSString *)juSessionPreset{
      juCaptureSession.sessionPreset=juSessionPreset;
 }

@@ -9,7 +9,8 @@
 #import "JuRichScanCameraVC.h"
 
 @interface JuRichScanCameraVC ()<AVCaptureMetadataOutputObjectsDelegate>{
-     AVCaptureMetadataOutput *ju_metaOutput;
+    AVCaptureVideoPreviewLayer *juPrevLayer;
+    AVCaptureMetadataOutput *juMetadataOutput;
 }
 
 @end

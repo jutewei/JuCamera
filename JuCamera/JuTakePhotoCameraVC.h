@@ -12,11 +12,7 @@ typedef NS_ENUM(NSInteger,JuCaptureOutputType){///< 订单状态
     JuCaptureOutputVideoData    =2,///< 实时视频
     JuCaptureOutputMovieFile    =3,///< 音视频
 };
-@interface JuTakePhotoCameraVC : JuCameraviewController{
-    AVCaptureStillImageOutput *juStillImageOutput;
-    AVCaptureVideoDataOutput *juVideoDataOutput;
-    AVCaptureAudioDataOutput *juAudioDataOutput;
-}
+@interface JuTakePhotoCameraVC : JuCameraviewController
 @property (nonatomic,assign) JuCaptureOutputType juCaptureType;
 @property (nonatomic,assign) AVCaptureDevicePosition juPosition;
 -(void)focusActionPoint:(CGPoint)point success:(void (^)(void))succ fail:(void (^)(NSError *))fail;

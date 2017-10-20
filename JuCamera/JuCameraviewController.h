@@ -15,10 +15,8 @@
     AVCaptureSession *juCaptureSession;
     AVCaptureDeviceInput *juCaptureInput;
     AVCaptureDevice *juDevice;
-    CALayer *juCustomLayer;
-    AVCaptureVideoPreviewLayer *juPrevLayer;
 }
 @property(nonatomic, copy) NSString *juSessionPreset;
 - (void)juInitCamera;
--(void)juBack:(id)sender;
+- (void)juBack:(id)sender;
 @end

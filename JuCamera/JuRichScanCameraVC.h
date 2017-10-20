@@ -9,7 +9,7 @@
 #import "JuCameraviewController.h"
 
 @interface JuRichScanCameraVC : JuCameraviewController{
-    AVCaptureMetadataOutput *juMetadataOutput;
+   
 }
 
 @end

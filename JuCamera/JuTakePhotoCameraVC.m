@@ -9,7 +9,11 @@
 #import "JuTakePhotoCameraVC.h"
 
 @interface JuTakePhotoCameraVC ()<AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate>{
-     AVCaptureFlashMode         juCurrentflashMode; // 当前闪光灯的模式
+    AVCaptureFlashMode         juCurrentflashMode; // 当前闪光灯的模式
+    AVCaptureStillImageOutput   *juStillImageOutput;
+    AVCaptureVideoDataOutput    *juVideoDataOutput;
+    AVCaptureAudioDataOutput    *juAudioDataOutput;
+    CALayer *juCustomLayer;
 }
 @property (nonatomic, retain) UIImageView *imageView;
 
@@ -202,6 +206,7 @@
     if ([self cameraSupportsTapToFocus] && [juDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus])
     {
         NSError *error;
+        //更改这个设置的时候必须先锁定设备，修改完后再解锁，否则崩溃
         if ([juDevice lockForConfiguration:&error]) {
             juDevice.focusPointOfInterest = point;
             juDevice.focusMode = AVCaptureFocusModeAutoFocus;
@@ -213,7 +218,8 @@
 }
 
 
-- (void)shTakePhoto:(id)sender {
+- (void)shTakePhoto:(UIButton *)sender {
+    sender.hidden=YES;
     [self juChangeFlash:AVCaptureFlashModeOn];
     AVCaptureConnection *stillImageConnection = [juStillImageOutput connectionWithMediaType:AVMediaTypeVideo];
     UIDeviceOrientation curDeviceOrientation = [[UIDevice currentDevice] orientation];
