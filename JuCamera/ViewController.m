@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "JuCameraVC.h"
+#import "JuTakePhotoCameraVC.h"
+#import "JuRichScanCameraVC.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *juImageView;
 
@@ -21,8 +22,13 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)JuTakePhotos:(UIButton *)sender {
-    JuCameraVC *vc=[[JuCameraVC alloc]init];
-    [self presentViewController:vc animated:YES completion:nil];
+    if (sender.tag==1) {
+        JuRichScanCameraVC *vc=[[JuRichScanCameraVC alloc]init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }else{
+        JuTakePhotoCameraVC *vc=[[JuTakePhotoCameraVC alloc]init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 

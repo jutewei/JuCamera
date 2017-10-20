@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB4296451F988377002D3EBA /* JuCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4296431F988377002D3EBA /* JuCameraVC.m */; };
-		EB4296461F988377002D3EBA /* JuCameraVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4296441F988377002D3EBA /* JuCameraVC.xib */; };
+		EB4296451F988377002D3EBA /* JuCameraviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4296431F988377002D3EBA /* JuCameraviewController.m */; };
 		EB4296481F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */; };
 		EB9CC2D51F974BAA0011BB4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC2D41F974BAA0011BB4D /* main.m */; };
 		EB9CC2D81F974BAA0011BB4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC2D71F974BAA0011BB4D /* AppDelegate.m */; };
@@ -16,12 +15,13 @@
 		EB9CC2DE1F974BAA0011BB4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2DC1F974BAA0011BB4D /* Main.storyboard */; };
 		EB9CC2E01F974BAA0011BB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */; };
 		EB9CC2E31F974BAA0011BB4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2E11F974BAA0011BB4D /* LaunchScreen.storyboard */; };
+		EBABDEA31F99826D009A0311 /* JuTakePhotoCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABDEA21F99826D009A0311 /* JuTakePhotoCameraVC.m */; };
+		EBABDEA61F9982AB009A0311 /* JuRichScanCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABDEA51F9982AB009A0311 /* JuRichScanCameraVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EB4296421F988377002D3EBA /* JuCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuCameraVC.h; sourceTree = "<group>"; };
-		EB4296431F988377002D3EBA /* JuCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuCameraVC.m; sourceTree = "<group>"; };
-		EB4296441F988377002D3EBA /* JuCameraVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JuCameraVC.xib; sourceTree = "<group>"; };
+		EB4296421F988377002D3EBA /* JuCameraviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuCameraviewController.h; sourceTree = "<group>"; };
+		EB4296431F988377002D3EBA /* JuCameraviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuCameraviewController.m; sourceTree = "<group>"; };
 		EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS-AVFoundation自定义相机详解 - 简书.pdf"; sourceTree = "<group>"; };
 		EB9CC2D01F974BAA0011BB4D /* JuCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JuCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9CC2D41F974BAA0011BB4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -33,6 +33,10 @@
 		EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB9CC2E21F974BAA0011BB4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB9CC2E41F974BAA0011BB4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBABDEA11F99826D009A0311 /* JuTakePhotoCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuTakePhotoCameraVC.h; sourceTree = "<group>"; };
+		EBABDEA21F99826D009A0311 /* JuTakePhotoCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuTakePhotoCameraVC.m; sourceTree = "<group>"; };
+		EBABDEA41F9982AB009A0311 /* JuRichScanCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuRichScanCameraVC.h; sourceTree = "<group>"; };
+		EBABDEA51F9982AB009A0311 /* JuRichScanCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuRichScanCameraVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +73,12 @@
 				EB9CC2D71F974BAA0011BB4D /* AppDelegate.m */,
 				EB9CC2D91F974BAA0011BB4D /* ViewController.h */,
 				EB9CC2DA1F974BAA0011BB4D /* ViewController.m */,
-				EB4296421F988377002D3EBA /* JuCameraVC.h */,
-				EB4296431F988377002D3EBA /* JuCameraVC.m */,
-				EB4296441F988377002D3EBA /* JuCameraVC.xib */,
+				EB4296421F988377002D3EBA /* JuCameraviewController.h */,
+				EB4296431F988377002D3EBA /* JuCameraviewController.m */,
+				EBABDEA11F99826D009A0311 /* JuTakePhotoCameraVC.h */,
+				EBABDEA21F99826D009A0311 /* JuTakePhotoCameraVC.m */,
+				EBABDEA41F9982AB009A0311 /* JuRichScanCameraVC.h */,
+				EBABDEA51F9982AB009A0311 /* JuRichScanCameraVC.m */,
 				EB9CC2DC1F974BAA0011BB4D /* Main.storyboard */,
 				EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */,
 				EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */,
@@ -150,7 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB4296481F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf in Resources */,
-				EB4296461F988377002D3EBA /* JuCameraVC.xib in Resources */,
 				EB9CC2E31F974BAA0011BB4D /* LaunchScreen.storyboard in Resources */,
 				EB9CC2E01F974BAA0011BB4D /* Assets.xcassets in Resources */,
 				EB9CC2DE1F974BAA0011BB4D /* Main.storyboard in Resources */,
@@ -164,10 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB4296451F988377002D3EBA /* JuCameraVC.m in Sources */,
+				EB4296451F988377002D3EBA /* JuCameraviewController.m in Sources */,
 				EB9CC2DB1F974BAA0011BB4D /* ViewController.m in Sources */,
+				EBABDEA31F99826D009A0311 /* JuTakePhotoCameraVC.m in Sources */,
 				EB9CC2D81F974BAA0011BB4D /* AppDelegate.m in Sources */,
 				EB9CC2D51F974BAA0011BB4D /* main.m in Sources */,
+				EBABDEA61F9982AB009A0311 /* JuRichScanCameraVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
