@@ -27,6 +27,7 @@
         [self presentViewController:vc animated:YES completion:nil];
     }else{
         JuTakePhotoCameraVC *vc=[[JuTakePhotoCameraVC alloc]init];
+        vc.juCaptureType=JuCaptureOutputStillImage;
         [self presentViewController:vc animated:YES completion:nil];
     }
 }

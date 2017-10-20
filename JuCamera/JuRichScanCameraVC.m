@@ -18,19 +18,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self juInitCamera];
     // Do any additional setup after loading the view.
 }
 - (void)juInitCamera{
     [super juInitCamera];
-    
-    dispatch_queue_t queue = dispatch_queue_create("cameraQueue", NULL);
-    juMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-    [juMetadataOutput setMetadataObjectsDelegate:self queue:queue];
-    [juCaptureSession addOutput:juMetadataOutput];
-    
-    [juMetadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode]];
+    if (!juMetadataOutput) {
+        dispatch_queue_t queue = dispatch_queue_create("cameraQueue", NULL);
+        juMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
+        [juMetadataOutput setMetadataObjectsDelegate:self queue:queue];
+        [juCaptureSession addOutput:juMetadataOutput];
+        
+        [juMetadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode]];
+        
+    }
 }
-
+-(void)juSetLayer{
+    juPrevLayer = [AVCaptureVideoPreviewLayer layerWithSession: juCaptureSession];
+    juPrevLayer.frame = self.view.bounds;
+    juPrevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    [self.view.layer addSublayer: juPrevLayer];
+}
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     if (metadataObjects.count>0) {

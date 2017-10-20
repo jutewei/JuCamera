@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self juInitCamera];
+//    [self juInitCamera];
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -32,43 +32,26 @@
  * 初始化摄像头
  */
 - (void)juInitCamera {
-    juDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    juCaptureInput = [AVCaptureDeviceInput deviceInputWithDevice:juDevice  error:nil];
-    
-    juCaptureSession = [[AVCaptureSession alloc] init];
-   
-    [juCaptureSession addInput:juCaptureInput];
-   
-    juCustomLayer = [CALayer layer];
-    CGRect frame = self.view.bounds;
-    frame.origin.y = 64;
-    frame.size.height = frame.size.height - 64;
-    
-    juCustomLayer.frame = frame;
-    juCustomLayer.transform = CATransform3DRotate(CATransform3DIdentity, M_PI/2.0f, 0, 0, 1);
-    juCustomLayer.contentsGravity = kCAGravityResizeAspectFill;
-    [self.view.layer addSublayer:juCustomLayer];
-     juCaptureSession.sessionPreset=AVCaptureSessionPresetPhoto;
-    juPrevLayer = [AVCaptureVideoPreviewLayer layerWithSession: juCaptureSession];
-    juPrevLayer.frame = CGRectMake(100, 64, 100, 100);
-    juPrevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    [self.view.layer addSublayer: juPrevLayer];
-    
-//    [juPrevLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
-    
-    UIButton *back = [[UIButton alloc]init];
-    [back setTitle:@"back" forState:UIControlStateNormal];
-    [back setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    
-    [back sizeToFit];
-    frame = back.frame;
-    frame.origin.y = 25;
-    back.frame = frame;
-    [self.view addSubview:back];
-    [back addTarget:self action:@selector(juBack:) forControlEvents:UIControlEventTouchUpInside];
-    
-   
+    if (!juCaptureSession) {
+        juDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        juCaptureInput = [AVCaptureDeviceInput deviceInputWithDevice:juDevice  error:nil];
+        
+        juCaptureSession = [[AVCaptureSession alloc] init];
+        juCaptureSession.sessionPreset=AVCaptureSessionPresetPhoto;
+        [juCaptureSession addInput:juCaptureInput];
+        //    [juPrevLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
+        
+        [self juSetLayer];
+        
+        UIButton *back = [[UIButton alloc]initWithFrame:CGRectMake(0, 20, 60, 30)];
+        [back setTitle:@"back" forState:UIControlStateNormal];
+        [back setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+
+        [self.view addSubview:back];
+        [back addTarget:self action:@selector(juBack:) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
+-(void)juSetLayer{}
 
 -(void)juBack:(id)sender{
     [juCaptureSession stopRunning];
