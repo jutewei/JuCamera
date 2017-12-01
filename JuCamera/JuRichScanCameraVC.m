@@ -9,7 +9,7 @@
 #import "JuRichScanCameraVC.h"
 
 @interface JuRichScanCameraVC ()<AVCaptureMetadataOutputObjectsDelegate>{
-    AVCaptureVideoPreviewLayer *juPrevLayer;
+  
     AVCaptureMetadataOutput *juMetadataOutput;
 }
 
@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self juInitCamera];
     // Do any additional setup after loading the view.
 }
 - (void)juInitCamera{
@@ -34,12 +33,7 @@
         
     }
 }
--(void)juSetLayer{
-    juPrevLayer = [AVCaptureVideoPreviewLayer layerWithSession: juCaptureSession];
-    juPrevLayer.frame = self.view.bounds;
-    juPrevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    [self.view.layer addSublayer: juPrevLayer];
-}
+
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     if (metadataObjects.count>0) {
@@ -53,7 +47,7 @@
             for (NSString *type in barCodeTypes) {
                 if ([metadata.type isEqualToString:type])
                 {
-                    barCodeObject = (AVMetadataMachineReadableCodeObject *)[juPrevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
+                    barCodeObject = (AVMetadataMachineReadableCodeObject *)[juVideoPrevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
                     highlightViewRect = barCodeObject.bounds;
                     detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
                     break;
@@ -61,7 +55,7 @@
             }
         }
         NSLog(@"扫描结果%@",detectionString);
-        [self performSelector:@selector(juBack:) withObject:nil afterDelay:0.3];
+//        [self performSelector:@selector(juBack:) withObject:nil afterDelay:0.3];
     }
 }
 

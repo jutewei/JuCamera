@@ -16,55 +16,59 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self juInitCamera];
+    juDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if(juDevice) [self juInitCamera];
+    });
+
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (juCaptureSession) {
-        [juCaptureSession startRunning];
-    }
+    [self juStartRunning:YES];
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    if (juCaptureSession) {
-        [juCaptureSession stopRunning];
-    }
+    [self juStartRunning:NO];
 }
 -(void)setJuSessionPreset:(NSString *)juSessionPreset{
      juCaptureSession.sessionPreset=juSessionPreset;
 }
-
+-(void)juStartRunning:(BOOL)isStart{
+    if (juCaptureSession) {
+        if (isStart&&!_isTakePhoto) {
+            [juCaptureSession startRunning];
+        }else{
+            [juCaptureSession stopRunning];
+        }
+    }
+}
+-(void)setIsTakePhoto:(BOOL)isTakePhoto{
+    _isTakePhoto=isTakePhoto;
+    [self juStartRunning:!isTakePhoto];
+}
+-(void)juReTakePhoto{
+    _isTakePhoto=NO;
+    [self juStartRunning:YES];
+}
 /**
  * 初始化摄像头
  */
 - (void)juInitCamera {
     if (!juCaptureSession) {
-        juDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-        juCaptureInput = [AVCaptureDeviceInput deviceInputWithDevice:juDevice  error:nil];
-        
         juCaptureSession = [[AVCaptureSession alloc] init];
-        juCaptureSession.sessionPreset=AVCaptureSessionPresetPhoto;
+        juCaptureInput = [AVCaptureDeviceInput deviceInputWithDevice:juDevice  error:nil];
+//        juCaptureSession.sessionPreset=AVCaptureSessionPresetHigh;
         [juCaptureSession addInput:juCaptureInput];
-        //    [juPrevLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
-        
         [self juSetLayer];
-        
-        UIButton *back = [[UIButton alloc]initWithFrame:CGRectMake(0, 20, 60, 30)];
-        [back setTitle:@"back" forState:UIControlStateNormal];
-        [back setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-
-        [self.view addSubview:back];
-        [back addTarget:self action:@selector(juBack:) forControlEvents:UIControlEventTouchUpInside];
+        [self juStartRunning:YES];
     }
 }
--(void)juSetLayer{}
-
--(void)juBack:(id)sender{
-    [juCaptureSession stopRunning];
-    [self dismissViewControllerAnimated:true completion:nil];
+-(void)juSetLayer{
+    juVideoPrevLayer = [AVCaptureVideoPreviewLayer layerWithSession: juCaptureSession];
+    juVideoPrevLayer.frame = self.view.bounds;
+    juVideoPrevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

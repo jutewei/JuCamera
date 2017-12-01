@@ -9,13 +9,15 @@
 #import "JuTakePhotoCameraVC.h"
 
 @interface JuTakePhotoCameraVC ()<AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate>{
-    AVCaptureFlashMode         juCurrentflashMode; // 当前闪光灯的模式
+//    AVCaptureFlashMode         juCurrentflashMode; // 当前闪光灯的模式
     AVCaptureStillImageOutput   *juStillImageOutput;
     AVCaptureVideoDataOutput    *juVideoDataOutput;
     AVCaptureAudioDataOutput    *juAudioDataOutput;
-    CALayer *juCustomLayer;
+    BOOL isCheck;
+ 
+
 }
-@property (nonatomic, retain) UIImageView *imageView;
+//@property (nonatomic, retain) UIImageView *imageView;
 
 @end
 
@@ -23,50 +25,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self juInitCamera];
+
     // Do any additional setup after loading the view.
 }
 - (void)juInitCamera{
     [super juInitCamera];
-    if (!self.imageView) {
-        [self juSetVideoOutput];
-        juStillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-        //输出设置。AVVideoCodecJPEG   输出jpeg格式图片
-        NSDictionary * outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey, nil];
-        [juStillImageOutput setOutputSettings:outputSettings];
-        if ([juCaptureSession  canAddOutput:juStillImageOutput]) {
-            [juCaptureSession addOutput:juStillImageOutput];
-        }
-
-        self.imageView = [[UIImageView alloc] init];
-        self.imageView.frame = CGRectMake(0, 64, 100, 100);
-        [self.view addSubview:self.imageView];
-        
-    
-        UIButton *take = [[UIButton alloc]initWithFrame:CGRectMake(150, 300, 60, 35)];
-        [take setTitle:@"拍照" forState:UIControlStateNormal];
-        [take setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        
-        [take sizeToFit];
-        [self.view addSubview:take];
-        [take addTarget:self action:@selector(shTakePhoto:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton *switchBtn = [[UIButton alloc]initWithFrame:CGRectMake(150, 350, 60, 35)];
-        [switchBtn setTitle:@"切换" forState:UIControlStateNormal];
-        [switchBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [self.view addSubview:switchBtn];
-        [switchBtn addTarget:self action:@selector(shTakeSwitch:) forControlEvents:UIControlEventTouchUpInside];
+    [self juSetVideoOutput];
+    juStillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+    //输出设置。AVVideoCodecJPEG   输出jpeg格式图片
+    NSDictionary * outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey, nil];
+    [juStillImageOutput setOutputSettings:outputSettings];
+    if ([juCaptureSession  canAddOutput:juStillImageOutput]) {
+        [juCaptureSession addOutput:juStillImageOutput];
     }
-
 }
--(void)juSetLayer{
-    juCustomLayer = [CALayer layer];
-    juCustomLayer.frame = self.view.bounds;
-    juCustomLayer.transform = CATransform3DRotate(CATransform3DIdentity, M_PI/2.0f, 0, 0, 1);
-    juCustomLayer.contentsGravity = kCAGravityResizeAspectFill;
-    [self.view.layer addSublayer:juCustomLayer];
 
-}
 -(void)setJuCaptureType:(JuCaptureOutputType)juCaptureType{
     switch (juCaptureType) {
         case JuCaptureOutputMovieFile:{
@@ -91,16 +64,14 @@
     dispatch_queue_t queue = dispatch_queue_create("cameraQueue", DISPATCH_QUEUE_SERIAL);
     [juVideoDataOutput setSampleBufferDelegate:self queue:queue];
     NSString* key = (NSString*)kCVPixelBufferPixelFormatTypeKey;
-    NSNumber* value = [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA];
+    NSNumber* value = [NSNumber numberWithUnsignedLong:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange];
     NSDictionary* videoSettings = [NSDictionary dictionaryWithObject:value forKey:key];
     [juVideoDataOutput setVideoSettings:videoSettings];
     if ([juCaptureSession  canAddOutput:juVideoDataOutput]) {
         [juCaptureSession addOutput:juVideoDataOutput];
     }
 }
--(void)shTakeSwitch:(UIButton *)sender{
-    self.juPosition=AVCaptureDevicePositionFront;
-}
+
 -(void)setJuPosition:(AVCaptureDevicePosition)juPosition{
     _juPosition=juPosition;
     [self juSwitchCameras];
@@ -122,13 +93,9 @@
         }
         [juCaptureSession commitConfiguration];
         
-        // 如果从后置转前置，会关闭手电筒，如果之前打开的，需要通知camera更新UI
-        if (juDevice.position == AVCaptureDevicePositionFront) {
-            
-        }
-        // 闪关灯，前后摄像头的闪光灯是不一样的，所以在转换摄像头后需要重新设置闪光灯
-        [self juChangeFlash:juCurrentflashMode];
-        
+//        // 闪关灯，前后摄像头的闪光灯是不一样的，所以在转换摄像头后需要重新设置闪光灯
+//        [self juStartFlash:_juCaptureFlashModel];
+
         // 由于前置摄像头不支持视频，所以当你转换到前置摄像头时，视频输出就无效了，所以在转换回来时，需要把原来的删除了，在重新加一个新的进去
         [self juSetVideoOutput];
         
@@ -148,18 +115,28 @@
     return nil;
 }
 #pragma mark 闪光灯
-- (id)juChangeFlash:(AVCaptureFlashMode)flashMode{
-    if (![self juCameraHasFlash]) {
+- (id)juStartFlash{
+    if (![juDevice hasFlash]) {
         NSDictionary *desc = @{NSLocalizedDescriptionKey:@"不支持闪光灯"};
         NSError *error = [NSError errorWithDomain:@"com.cc.camera" code:401 userInfo:desc];
         return error;
     }
     // 如果手电筒打开，先关闭手电筒
-    if ([self juTorchMode] == AVCaptureTorchModeOn) {
+    if ( juDevice.torchMode == AVCaptureTorchModeOn) {
         [self setTorchMode:AVCaptureTorchModeOff];
     }
-    return [self setFlashMode:flashMode];
+    //    开始闪光
+    if ([juDevice isFlashModeSupported:_juCaptureFlashModel]) {
+        NSError *error;
+        if ([juDevice lockForConfiguration:&error]) {
+            juDevice.flashMode = _juCaptureFlashModel;
+            [juDevice unlockForConfiguration];
+        }
+        return error;
+    }
+    return nil;
 }
+
 - (id)setTorchMode:(AVCaptureTorchMode)torchMode{
     
     if ([juDevice isTorchModeSupported:torchMode]) {
@@ -172,25 +149,12 @@
     }
     return nil;
 }
-- (id)setFlashMode:(AVCaptureFlashMode)flashMode{
-   
-    if ([juDevice isFlashModeSupported:flashMode]) {
-        NSError *error;
-        if ([juDevice lockForConfiguration:&error]) {
-            juDevice.flashMode = flashMode;
-            [juDevice unlockForConfiguration];
-            juCurrentflashMode = flashMode;
-        }
-        return error;
-    }
-    return nil;
-}
+
+//支持手电筒
 - (AVCaptureTorchMode)juTorchMode {
-    return [juDevice hasFlash];
+    return [juDevice hasTorch];
 }
-- (BOOL)juCameraHasFlash {
-    return [juDevice hasFlash];
-}
+
 
 #pragma mark - 聚焦
 -(void)focusActionPoint:(CGPoint)point success:(void (^)(void))succ fail:(void (^)(NSError *))fail{
@@ -198,12 +162,10 @@
     error?!fail?:fail(error):!succ?:succ();
 }
 
-- (BOOL)cameraSupportsTapToFocus{
-    return [juDevice isFocusPointOfInterestSupported];
-}
 
+//自动对焦
 - (id)juFocusAtPoint:(CGPoint)point{
-    if ([self cameraSupportsTapToFocus] && [juDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus])
+    if ([juDevice isFocusPointOfInterestSupported] && [juDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus])
     {
         NSError *error;
         //更改这个设置的时候必须先锁定设备，修改完后再解锁，否则崩溃
@@ -217,10 +179,14 @@
     return nil;
 }
 
+//拍照
+- (void)shTakePhoto:(void (^)(UIImage *image))handle{
+    
+    if (!juCaptureSession.isRunning)  return;
 
-- (void)shTakePhoto:(UIButton *)sender {
-    sender.hidden=YES;
-    [self juChangeFlash:AVCaptureFlashModeOn];
+    if (_juPosition!=AVCaptureDevicePositionFront) {
+        [self juStartFlash];
+    }
     AVCaptureConnection *stillImageConnection = [juStillImageOutput connectionWithMediaType:AVMediaTypeVideo];
     UIDeviceOrientation curDeviceOrientation = [[UIDevice currentDevice] orientation];
     AVCaptureVideoOrientation avcaptureOrientation = [self avOrientationForDeviceOrientation:curDeviceOrientation];
@@ -230,45 +196,60 @@
     [juStillImageOutput captureStillImageAsynchronouslyFromConnection:stillImageConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         
         NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-        CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault,
-                                                                    imageDataSampleBuffer,
-                                                                    kCMAttachmentMode_ShouldPropagate);
-        
+        self.isTakePhoto=YES;
+       
         UIImage *image=[UIImage imageWithData:jpegData];
-        self.imageView.image=image;
-        [juCaptureSession stopRunning];
+        handle(image);
         NSLog(@"图片 %@",image);
         
     }];
 }
+
+/*-(void)shTest:(CMSampleBufferRef)imageSampleBuffer{
+    UIImageOrientation imgOrientation; //拍摄后获取的的图像方向
+
+    if (juDevice.position == AVCaptureDevicePositionFront) {
+        // 前置摄像头图像方向 UIImageOrientationLeftMirrored
+        // IOS前置摄像头左右成像
+        imgOrientation = UIImageOrientationLeftMirrored;
+        NSLog(@"前置摄像头");
+        NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+        UIImage *t_image = [UIImage imageWithData:imageData];
+
+        UIImage *image = [[UIImage alloc]initWithCGImage:t_image.CGImage scale:1.0f orientation:imgOrientation];
+    }
+
+}*/
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
-    
+
+//    [faceEngine shCheckSampleBuffer:sampleBuffer];
+//
     CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     CVPixelBufferLockBaseAddress(imageBuffer,0);
     uint8_t *baseAddress = (uint8_t *)CVPixelBufferGetBaseAddress(imageBuffer);
     size_t bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer);
     size_t width = CVPixelBufferGetWidth(imageBuffer);
     size_t height = CVPixelBufferGetHeight(imageBuffer);
-    
+
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace,                                                  kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-    
+
     CGImageRef newImage = CGBitmapContextCreateImage(newContext);
-    
+
     CGContextRelease(newContext);
     CGColorSpaceRelease(colorSpace);
-    
+
     id object = (__bridge id)newImage;
     // http://www.cnblogs.com/zzltjnh/p/3885012.html
-    [juCustomLayer performSelectorOnMainThread:@selector(setContents:) withObject: object waitUntilDone:YES];
-    
+//    [juVideoPrevLayer performSelectorOnMainThread:@selector(setContents:) withObject: object waitUntilDone:YES];
+
     UIImage *image= [UIImage imageWithCGImage:newImage scale:1.0 orientation:UIImageOrientationRight];
     // release
     CGImageRelease(newImage);
-    
-    [self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
-    
+
+//    [self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
+
     CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
 }
 
