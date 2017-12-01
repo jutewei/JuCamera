@@ -9,17 +9,39 @@
 #import "ViewController.h"
 #import "JuTakePhotoCameraVC.h"
 #import "JuRichScanCameraVC.h"
-@interface ViewController ()
+#import "JuPlayVoice.h"
+#import <AVFoundation/AVFoundation.h>
+@interface ViewController (){
+    JuPlayVoice *ju_playVoice;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *juImageView;
-
+@property (nonatomic, strong) AVAudioPlayer *player;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    [self shSetNew:2|1|3];
     // Do any additional setup after loading the view, typically from a nib.
+}
+-(void)shSetNew:(NSInteger)index{
+    if(index&3){
+        NSLog(@"3");
+    }
+    if (index&2){
+        NSLog(@"2");
+    }
+    if (index&1){
+        NSLog(@"1");
+    }
+    if (index&4){
+        NSLog(@"4");
+    }
+
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 - (IBAction)JuTakePhotos:(UIButton *)sender {
     if (sender.tag==1) {

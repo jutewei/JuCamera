@@ -15,6 +15,8 @@
 		EB9CC2DE1F974BAA0011BB4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2DC1F974BAA0011BB4D /* Main.storyboard */; };
 		EB9CC2E01F974BAA0011BB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */; };
 		EB9CC2E31F974BAA0011BB4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2E11F974BAA0011BB4D /* LaunchScreen.storyboard */; };
+		EBA6BCBA1FCFEB8800A05AFB /* JuPlayVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA6BCB91FCFEB8800A05AFB /* JuPlayVoice.m */; };
+		EBA6BCBC1FCFEB8E00A05AFB /* aim_uncapture.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBA6BCBB1FCFEB8E00A05AFB /* aim_uncapture.mp3 */; };
 		EBABDEA31F99826D009A0311 /* JuTakePhotoCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABDEA21F99826D009A0311 /* JuTakePhotoCameraVC.m */; };
 		EBABDEA61F9982AB009A0311 /* JuRichScanCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABDEA51F9982AB009A0311 /* JuRichScanCameraVC.m */; };
 /* End PBXBuildFile section */
@@ -33,6 +35,9 @@
 		EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB9CC2E21F974BAA0011BB4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB9CC2E41F974BAA0011BB4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBA6BCB81FCFEB8800A05AFB /* JuPlayVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuPlayVoice.h; sourceTree = "<group>"; };
+		EBA6BCB91FCFEB8800A05AFB /* JuPlayVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuPlayVoice.m; sourceTree = "<group>"; };
+		EBA6BCBB1FCFEB8E00A05AFB /* aim_uncapture.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aim_uncapture.mp3; sourceTree = "<group>"; };
 		EBABDEA11F99826D009A0311 /* JuTakePhotoCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuTakePhotoCameraVC.h; sourceTree = "<group>"; };
 		EBABDEA21F99826D009A0311 /* JuTakePhotoCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuTakePhotoCameraVC.m; sourceTree = "<group>"; };
 		EBABDEA41F9982AB009A0311 /* JuRichScanCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuRichScanCameraVC.h; sourceTree = "<group>"; };
@@ -80,6 +85,9 @@
 				EBABDEA41F9982AB009A0311 /* JuRichScanCameraVC.h */,
 				EBABDEA51F9982AB009A0311 /* JuRichScanCameraVC.m */,
 				EB9CC2DC1F974BAA0011BB4D /* Main.storyboard */,
+				EBA6BCB81FCFEB8800A05AFB /* JuPlayVoice.h */,
+				EBA6BCB91FCFEB8800A05AFB /* JuPlayVoice.m */,
+				EBA6BCBB1FCFEB8E00A05AFB /* aim_uncapture.mp3 */,
 				EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */,
 				EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */,
 				EB9CC2E11F974BAA0011BB4D /* LaunchScreen.storyboard */,
@@ -156,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBA6BCBC1FCFEB8E00A05AFB /* aim_uncapture.mp3 in Resources */,
 				EB4296481F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf in Resources */,
 				EB9CC2E31F974BAA0011BB4D /* LaunchScreen.storyboard in Resources */,
 				EB9CC2E01F974BAA0011BB4D /* Assets.xcassets in Resources */,
@@ -170,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBA6BCBA1FCFEB8800A05AFB /* JuPlayVoice.m in Sources */,
 				EB4296451F988377002D3EBA /* JuCameraviewController.m in Sources */,
 				EB9CC2DB1F974BAA0011BB4D /* ViewController.m in Sources */,
 				EBABDEA31F99826D009A0311 /* JuTakePhotoCameraVC.m in Sources */,
