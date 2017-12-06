@@ -28,8 +28,8 @@
 
     // Do any additional setup after loading the view.
 }
-- (void)juInitCamera{
-    [super juInitCamera];
+- (void)juInitCaptureOutput{
+   [super juInitCaptureOutput];
     [self juSetVideoOutput];
     juStillImageOutput = [[AVCaptureStillImageOutput alloc] init];
     //输出设置。AVVideoCodecJPEG   输出jpeg格式图片
@@ -64,7 +64,7 @@
     dispatch_queue_t queue = dispatch_queue_create("cameraQueue", DISPATCH_QUEUE_SERIAL);
     [juVideoDataOutput setSampleBufferDelegate:self queue:queue];
     NSString* key = (NSString*)kCVPixelBufferPixelFormatTypeKey;
-    NSNumber* value = [NSNumber numberWithUnsignedLong:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange];
+    NSNumber* value = [NSNumber numberWithUnsignedLong:kCVPixelFormatType_32BGRA];
     NSDictionary* videoSettings = [NSDictionary dictionaryWithObject:value forKey:key];
     [juVideoDataOutput setVideoSettings:videoSettings];
     if ([juCaptureSession  canAddOutput:juVideoDataOutput]) {

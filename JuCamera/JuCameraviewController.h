@@ -22,6 +22,6 @@
 @property(nonatomic,assign) BOOL isTakePhoto;///< 拍照完成
 -(void)juReTakePhoto;///< 重新拍照
 -(void)juStartRunning:(BOOL)isStart;
-- (void)juInitCamera;
+- (void)juInitCaptureOutput;
 
 @end

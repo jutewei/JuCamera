@@ -21,8 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-- (void)juInitCamera{
-    [super juInitCamera];
+- (void)juInitCaptureOutput{
+    [super juInitCaptureOutput];
     if (!juMetadataOutput) {
         dispatch_queue_t queue = dispatch_queue_create("cameraQueue", NULL);
         juMetadataOutput = [[AVCaptureMetadataOutput alloc] init];

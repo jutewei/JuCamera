@@ -18,7 +18,7 @@
     [super viewDidLoad];
     juDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if(juDevice) [self juInitCamera];
+        if(juDevice) [self juInitSession];
     });
 
     // Do any additional setup after loading the view from its nib.
@@ -54,20 +54,19 @@
 /**
  * 初始化摄像头
  */
-- (void)juInitCamera {
+- (void)juInitSession{
     if (!juCaptureSession) {
         juCaptureSession = [[AVCaptureSession alloc] init];
+        [juCaptureSession beginConfiguration];
         juCaptureInput = [AVCaptureDeviceInput deviceInputWithDevice:juDevice  error:nil];
 //        juCaptureSession.sessionPreset=AVCaptureSessionPresetHigh;
-        [juCaptureSession addInput:juCaptureInput];
-        [self juSetLayer];
+        if ([juCaptureSession canAddInput:juCaptureInput]) {
+             [juCaptureSession addInput:juCaptureInput];
+        }
+        [self juInitCaptureOutput];
+        [juCaptureSession commitConfiguration];
         [self juStartRunning:YES];
     }
-}
--(void)juSetLayer{
-    juVideoPrevLayer = [AVCaptureVideoPreviewLayer layerWithSession: juCaptureSession];
-    juVideoPrevLayer.frame = self.view.bounds;
-    juVideoPrevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 }
 
 - (void)didReceiveMemoryWarning {
