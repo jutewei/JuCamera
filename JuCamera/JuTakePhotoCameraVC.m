@@ -14,7 +14,7 @@
     AVCaptureVideoDataOutput    *juVideoDataOutput;
     AVCaptureAudioDataOutput    *juAudioDataOutput;
     BOOL isCheck;
- 
+    UIView *ju_camFocus;
 
 }
 //@property (nonatomic, retain) UIImageView *imageView;
@@ -166,6 +166,22 @@
     CGPoint touchPoint = [touch locationInView:touch.view];
 //    BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self.view] count]);
     [self juFocusAtPoint:touchPoint];
+    if (!ju_camFocus) {
+        ju_camFocus=[[UIView alloc]init];
+        ju_camFocus.backgroundColor=[UIColor clearColor];
+        ju_camFocus.userInteractionEnabled=NO;
+        [ju_camFocus.layer setBorderColor:UIColor.yellowColor.CGColor];
+        [ju_camFocus.layer setBorderWidth:1];
+        [self.view addSubview:ju_camFocus];
+    }
+    ju_camFocus.alpha=1;
+    ju_camFocus.frame=CGRectMake(touchPoint.x-40, touchPoint.y-40, 80, 80);
+    [UIView animateWithDuration:0.5 delay:3 options:UIViewAnimationOptionCurveEaseOut  animations:^{
+        ju_camFocus.alpha=0;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
 }
 //自动对焦
 - (id)juFocusAtPoint:(CGPoint)point{
