@@ -69,6 +69,13 @@
     }
 }
 
+-(void)juInitCaptureOutput{
+    juVideoPrevLayer = [AVCaptureVideoPreviewLayer layerWithSession: juCaptureSession];
+    juVideoPrevLayer.frame = self.view.bounds;
+    juVideoPrevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    [self.view.layer addSublayer:juVideoPrevLayer];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

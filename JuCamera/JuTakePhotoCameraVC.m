@@ -161,23 +161,39 @@
     id error = [self juFocusAtPoint:point];
     error?!fail?:fail(error):!succ?:succ();
 }
-
-
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchPoint = [touch locationInView:touch.view];
+//    BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self.view] count]);
+    [self juFocusAtPoint:touchPoint];
+}
 //自动对焦
 - (id)juFocusAtPoint:(CGPoint)point{
     if ([juDevice isFocusPointOfInterestSupported] && [juDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus])
     {
+        CGRect cameraViewRect = [[self view] bounds];
+        double cameraViewWidth = cameraViewRect.size.width;
+        double cameraViewHeight = cameraViewRect.size.height;
+        double focus_x = point.x/cameraViewWidth;
+        double focus_y = point.y/cameraViewHeight;
+        CGPoint cameraViewPoint = CGPointMake(focus_x, focus_y);
         NSError *error;
         //更改这个设置的时候必须先锁定设备，修改完后再解锁，否则崩溃
         if ([juDevice lockForConfiguration:&error]) {
-            juDevice.focusPointOfInterest = point;
+            juDevice.focusPointOfInterest = cameraViewPoint;
             juDevice.focusMode = AVCaptureFocusModeAutoFocus;
+            if ([juDevice isExposurePointOfInterestSupported] && [juDevice isExposureModeSupported:AVCaptureExposureModeAutoExpose]) {
+                [juDevice setExposureMode:AVCaptureExposureModeAutoExpose];
+                [juDevice setExposurePointOfInterest:cameraViewPoint];
+            }
+            [juDevice setSubjectAreaChangeMonitoringEnabled:true];
             [juDevice unlockForConfiguration];
         }
         return error;
     }
     return nil;
 }
+
 
 //拍照
 - (void)shTakePhoto:(void (^)(UIImage *image))handle{

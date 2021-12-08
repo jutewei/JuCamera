@@ -141,7 +141,7 @@
 				TargetAttributes = {
 					EB9CC2CF1F974BAA0011BB4D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 3Y5SHRC9L9;
+						DevelopmentTeam = 5DGTJHKZ77;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -151,6 +151,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -313,14 +314,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3Y5SHRC9L9;
+				DEVELOPMENT_TEAM = 5DGTJHKZ77;
 				INFOPLIST_FILE = JuCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aifubao.JuCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6a6e5898-4211-4127-a086-4d327ec1ce77";
-				PROVISIONING_PROFILE_SPECIFIER = TestAll;
+				PROVISIONING_PROFILE_SPECIFIER = testAll;
 			};
 			name = Debug;
 		};

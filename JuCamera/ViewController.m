@@ -46,9 +46,11 @@
 - (IBAction)JuTakePhotos:(UIButton *)sender {
     if (sender.tag==1) {
         JuRichScanCameraVC *vc=[[JuRichScanCameraVC alloc]init];
+        vc.modalPresentationStyle=0;
         [self presentViewController:vc animated:YES completion:nil];
     }else{
         JuTakePhotoCameraVC *vc=[[JuTakePhotoCameraVC alloc]init];
+        vc.modalPresentationStyle=0;
         vc.juCaptureType=JuCaptureOutputStillImage;
         [self presentViewController:vc animated:YES completion:nil];
     }
