@@ -31,7 +31,7 @@
     [super viewDidDisappear:animated];
     [self juStartRunning:NO];
 }
--(void)setJuSessionPreset:(NSString *)juSessionPreset{
+-(void)setJuSessionPreset:(AVCaptureSessionPreset)juSessionPreset{
      juCaptureSession.sessionPreset=juSessionPreset;
 }
 -(void)juStartRunning:(BOOL)isStart{

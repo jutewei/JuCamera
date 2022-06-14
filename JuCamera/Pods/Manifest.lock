@@ -1,0 +1,20 @@
+PODS:
+  - JuCamera (1.0.0):
+    - JuCamera/Core (= 1.0.0)
+    - JuCamera/PABase (= 1.0.0)
+  - JuCamera/Core (1.0.0)
+  - JuCamera/PABase (1.0.0)
+
+DEPENDENCIES:
+  - JuCamera (from `../`)
+
+EXTERNAL SOURCES:
+  JuCamera:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JuCamera: a9273cba9628bf79acb9c4a8ee57d06721d2ef29
+
+PODFILE CHECKSUM: cbf6e0b7ed818b1fa110b3532785bed9388e7d98
+
+COCOAPODS: 1.11.0

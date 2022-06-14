@@ -17,7 +17,7 @@
     AVCaptureDevice *juDevice;
     AVCaptureVideoPreviewLayer *juVideoPrevLayer;
 }
-@property(nonatomic, copy) NSString *juSessionPreset;
+@property(nonatomic, copy) AVCaptureSessionPreset juSessionPreset;
 
 @property(nonatomic,assign) BOOL isTakePhoto;///< 拍照完成
 -(void)juReTakePhoto;///< 重新拍照

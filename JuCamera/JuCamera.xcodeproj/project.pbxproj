@@ -7,31 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0E24EACFC71DAC93AD5D00 /* libPods-JuCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF52E4EF04BE8DB23232C37 /* libPods-JuCamera.a */; };
 		EB4296481F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */; };
-		EB81E6431FD1211900073539 /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB81E63B1FD1211900073539 /* UIImage+fixOrientation.m */; };
-		EB81E6441FD1211900073539 /* JuCameraviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB81E63C1FD1211900073539 /* JuCameraviewController.m */; };
-		EB81E6451FD1211900073539 /* JuTakePhotoCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB81E63E1FD1211900073539 /* JuTakePhotoCameraVC.m */; };
-		EB81E6461FD1211900073539 /* JuRichScanCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB81E6401FD1211900073539 /* JuRichScanCameraVC.m */; };
 		EB9CC2D51F974BAA0011BB4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC2D41F974BAA0011BB4D /* main.m */; };
 		EB9CC2D81F974BAA0011BB4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC2D71F974BAA0011BB4D /* AppDelegate.m */; };
 		EB9CC2DB1F974BAA0011BB4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC2DA1F974BAA0011BB4D /* ViewController.m */; };
 		EB9CC2DE1F974BAA0011BB4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2DC1F974BAA0011BB4D /* Main.storyboard */; };
 		EB9CC2E01F974BAA0011BB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */; };
 		EB9CC2E31F974BAA0011BB4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9CC2E11F974BAA0011BB4D /* LaunchScreen.storyboard */; };
-		EBA6BCBA1FCFEB8800A05AFB /* JuPlayVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA6BCB91FCFEB8800A05AFB /* JuPlayVoice.m */; };
 		EBA6BCBC1FCFEB8E00A05AFB /* aim_uncapture.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBA6BCBB1FCFEB8E00A05AFB /* aim_uncapture.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18F4DF748B86075994B5E586 /* Pods-JuCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JuCamera.debug.xcconfig"; path = "Target Support Files/Pods-JuCamera/Pods-JuCamera.debug.xcconfig"; sourceTree = "<group>"; };
+		3BF52E4EF04BE8DB23232C37 /* libPods-JuCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JuCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4725ACA379E29B75FCDC6E05 /* Pods-JuCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JuCamera.release.xcconfig"; path = "Target Support Files/Pods-JuCamera/Pods-JuCamera.release.xcconfig"; sourceTree = "<group>"; };
 		EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS-AVFoundation自定义相机详解 - 简书.pdf"; sourceTree = "<group>"; };
-		EB81E63B1FD1211900073539 /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
-		EB81E63C1FD1211900073539 /* JuCameraviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuCameraviewController.m; sourceTree = "<group>"; };
-		EB81E63D1FD1211900073539 /* JuTakePhotoCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuTakePhotoCameraVC.h; sourceTree = "<group>"; };
-		EB81E63E1FD1211900073539 /* JuTakePhotoCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuTakePhotoCameraVC.m; sourceTree = "<group>"; };
-		EB81E63F1FD1211900073539 /* JuCameraviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuCameraviewController.h; sourceTree = "<group>"; };
-		EB81E6401FD1211900073539 /* JuRichScanCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuRichScanCameraVC.m; sourceTree = "<group>"; };
-		EB81E6411FD1211900073539 /* JuRichScanCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuRichScanCameraVC.h; sourceTree = "<group>"; };
-		EB81E6421FD1211900073539 /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
 		EB9CC2D01F974BAA0011BB4D /* JuCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JuCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9CC2D41F974BAA0011BB4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB9CC2D61F974BAA0011BB4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,8 +33,6 @@
 		EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB9CC2E21F974BAA0011BB4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB9CC2E41F974BAA0011BB4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBA6BCB81FCFEB8800A05AFB /* JuPlayVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuPlayVoice.h; sourceTree = "<group>"; };
-		EBA6BCB91FCFEB8800A05AFB /* JuPlayVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuPlayVoice.m; sourceTree = "<group>"; };
 		EBA6BCBB1FCFEB8E00A05AFB /* aim_uncapture.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aim_uncapture.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF0E24EACFC71DAC93AD5D00 /* libPods-JuCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4208401A09352BCC7909FE07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18F4DF748B86075994B5E586 /* Pods-JuCamera.debug.xcconfig */,
+				4725ACA379E29B75FCDC6E05 /* Pods-JuCamera.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ADEDD30A8BACE199098182AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BF52E4EF04BE8DB23232C37 /* libPods-JuCamera.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EB9CC2C71F974BAA0011BB4D = {
 			isa = PBXGroup;
 			children = (
 				EB9CC2D21F974BAA0011BB4D /* JuCamera */,
 				EB9CC2D11F974BAA0011BB4D /* Products */,
+				4208401A09352BCC7909FE07 /* Pods */,
+				ADEDD30A8BACE199098182AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,21 +86,11 @@
 		EB9CC2D21F974BAA0011BB4D /* JuCamera */ = {
 			isa = PBXGroup;
 			children = (
-				EB81E63F1FD1211900073539 /* JuCameraviewController.h */,
-				EB81E63C1FD1211900073539 /* JuCameraviewController.m */,
-				EB81E6411FD1211900073539 /* JuRichScanCameraVC.h */,
-				EB81E6401FD1211900073539 /* JuRichScanCameraVC.m */,
-				EB81E63D1FD1211900073539 /* JuTakePhotoCameraVC.h */,
-				EB81E63E1FD1211900073539 /* JuTakePhotoCameraVC.m */,
-				EB81E6421FD1211900073539 /* UIImage+fixOrientation.h */,
-				EB81E63B1FD1211900073539 /* UIImage+fixOrientation.m */,
 				EB9CC2D61F974BAA0011BB4D /* AppDelegate.h */,
 				EB9CC2D71F974BAA0011BB4D /* AppDelegate.m */,
 				EB9CC2D91F974BAA0011BB4D /* ViewController.h */,
 				EB9CC2DA1F974BAA0011BB4D /* ViewController.m */,
 				EB9CC2DC1F974BAA0011BB4D /* Main.storyboard */,
-				EBA6BCB81FCFEB8800A05AFB /* JuPlayVoice.h */,
-				EBA6BCB91FCFEB8800A05AFB /* JuPlayVoice.m */,
 				EBA6BCBB1FCFEB8E00A05AFB /* aim_uncapture.mp3 */,
 				EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */,
 				EB9CC2DF1F974BAA0011BB4D /* Assets.xcassets */,
@@ -117,6 +116,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB9CC2E71F974BAA0011BB4D /* Build configuration list for PBXNativeTarget "JuCamera" */;
 			buildPhases = (
+				A7BD744B6A52DE460F98069C /* [CP] Check Pods Manifest.lock */,
 				EB9CC2CC1F974BAA0011BB4D /* Sources */,
 				EB9CC2CD1F974BAA0011BB4D /* Frameworks */,
 				EB9CC2CE1F974BAA0011BB4D /* Resources */,
@@ -180,18 +180,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A7BD744B6A52DE460F98069C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JuCamera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EB9CC2CC1F974BAA0011BB4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB81E6441FD1211900073539 /* JuCameraviewController.m in Sources */,
-				EB81E6431FD1211900073539 /* UIImage+fixOrientation.m in Sources */,
-				EBA6BCBA1FCFEB8800A05AFB /* JuPlayVoice.m in Sources */,
-				EB81E6461FD1211900073539 /* JuRichScanCameraVC.m in Sources */,
 				EB9CC2DB1F974BAA0011BB4D /* ViewController.m in Sources */,
 				EB9CC2D81F974BAA0011BB4D /* AppDelegate.m in Sources */,
-				EB81E6451FD1211900073539 /* JuTakePhotoCameraVC.m in Sources */,
 				EB9CC2D51F974BAA0011BB4D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +332,7 @@
 		};
 		EB9CC2E81F974BAA0011BB4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18F4DF748B86075994B5E586 /* Pods-JuCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5DGTJHKZ77;
@@ -327,6 +348,7 @@
 		};
 		EB9CC2E91F974BAA0011BB4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4725ACA379E29B75FCDC6E05 /* Pods-JuCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";

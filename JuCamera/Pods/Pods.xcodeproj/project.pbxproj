@@ -1,0 +1,553 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20515D1B4BAFCBD547B81F8391A92DC2 /* JuTakePhotoCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C466FA3ECC5E4EBD221105B66D4A69F9 /* JuTakePhotoCameraVC.m */; };
+		2AC91AE1CAFBE257A9507F503ED65431 /* Pods-JuCamera-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF863A318348C67A467917A4B310421F /* Pods-JuCamera-dummy.m */; };
+		33FB05D2665A95F2D365AE292DCF599E /* JuTakePhotoCameraVC.h in Headers */ = {isa = PBXBuildFile; fileRef = C02333F1E3FF36B6BF1E6DF05D5F8D53 /* JuTakePhotoCameraVC.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		38196192DA9D9139D775778A25D731FC /* JuPlayVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E5F6609654B2C9FB35A862EDAF1628 /* JuPlayVoice.m */; };
+		3FBFB6B669DDAD288B1A179FE7C97B44 /* JuPlayVoice.h in Headers */ = {isa = PBXBuildFile; fileRef = 3871E6A69B55494976BE6D1B55D5D7CA /* JuPlayVoice.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		452C322A7A6BE582D3146A1841F1E2FF /* JuCamera-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76031DE69EBF9852B877C4BF4BF9D6F8 /* JuCamera-dummy.m */; };
+		4C690E8F3A913A32DBA55AAB59AAB5EB /* JuCameraviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4518463CCFC86D38BFF868F240653E /* JuCameraviewController.m */; };
+		5E0A9C0FDCA5ECB506F6E1F59BF4BEEA /* JuRichScanCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 783E71BE1B83FAAF9C69ACADB0A3F110 /* JuRichScanCameraVC.m */; };
+		6F8FFE55DCC4A563F6B377CFEA2B29BA /* JuRichScanCameraVC.h in Headers */ = {isa = PBXBuildFile; fileRef = B080B215DF31AAA69C97DE8867A958CA /* JuRichScanCameraVC.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		89A159FE728B07438882186A5A2E4394 /* JuCameraviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 445B99A6E9D627CFAF881C0035BA761D /* JuCameraviewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B032BE404E96C4ABA1D5E30CAFFE586C /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A451AEA84940593F9FAB9D79D05D3BA /* UIImage+fixOrientation.m */; };
+		CF8F87D2EF972BE4B2ED25B15AB75953 /* UIImage+fixOrientation.h in Headers */ = {isa = PBXBuildFile; fileRef = 209220AC69CD54BD894A6AD57DB3CDFD /* UIImage+fixOrientation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		477A490BED08734E8310F9C72E3749FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E3C96C32A3A584F241CFBEEC446ADDB;
+			remoteInfo = JuCamera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06FA419F1918F5A0C7E7CD8CB80C5E04 /* JuCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JuCamera.release.xcconfig; sourceTree = "<group>"; };
+		097F5D19554AF230F08B82FA139461E7 /* Pods-JuCamera-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JuCamera-acknowledgements.plist"; sourceTree = "<group>"; };
+		0C1974FEA3ED493C5AA4199B62C59556 /* Pods-JuCamera */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-JuCamera"; path = "libPods-JuCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		209220AC69CD54BD894A6AD57DB3CDFD /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+fixOrientation.h"; path = "Source/UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		3871E6A69B55494976BE6D1B55D5D7CA /* JuPlayVoice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JuPlayVoice.h; path = Source/JuPlayVoice.h; sourceTree = "<group>"; };
+		445B99A6E9D627CFAF881C0035BA761D /* JuCameraviewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JuCameraviewController.h; path = Source/JuCameraviewController.h; sourceTree = "<group>"; };
+		4A451AEA84940593F9FAB9D79D05D3BA /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+fixOrientation.m"; path = "Source/UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		558B2CACD33D7E5E6BDC27B187F3F4AC /* JuCamera.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JuCamera.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		559A6BA250A9CC39A177DC319CBE9C19 /* JuCamera */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = JuCamera; path = libJuCamera.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		76031DE69EBF9852B877C4BF4BF9D6F8 /* JuCamera-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JuCamera-dummy.m"; sourceTree = "<group>"; };
+		783E71BE1B83FAAF9C69ACADB0A3F110 /* JuRichScanCameraVC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JuRichScanCameraVC.m; path = Source/JuRichScanCameraVC.m; sourceTree = "<group>"; };
+		8D4518463CCFC86D38BFF868F240653E /* JuCameraviewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JuCameraviewController.m; path = Source/JuCameraviewController.m; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B080B215DF31AAA69C97DE8867A958CA /* JuRichScanCameraVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JuRichScanCameraVC.h; path = Source/JuRichScanCameraVC.h; sourceTree = "<group>"; };
+		B2E5F6609654B2C9FB35A862EDAF1628 /* JuPlayVoice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JuPlayVoice.m; path = Source/JuPlayVoice.m; sourceTree = "<group>"; };
+		B6E080E4D1E49FB8F01B8069057322D2 /* JuCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JuCamera.debug.xcconfig; sourceTree = "<group>"; };
+		C02333F1E3FF36B6BF1E6DF05D5F8D53 /* JuTakePhotoCameraVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JuTakePhotoCameraVC.h; path = Source/JuTakePhotoCameraVC.h; sourceTree = "<group>"; };
+		C466FA3ECC5E4EBD221105B66D4A69F9 /* JuTakePhotoCameraVC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JuTakePhotoCameraVC.m; path = Source/JuTakePhotoCameraVC.m; sourceTree = "<group>"; };
+		C8D78316AD4F2567D0B10E17C4666B99 /* Pods-JuCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JuCamera.debug.xcconfig"; sourceTree = "<group>"; };
+		CF863A318348C67A467917A4B310421F /* Pods-JuCamera-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JuCamera-dummy.m"; sourceTree = "<group>"; };
+		D39E9183C71CDB9781491036512F04DD /* Pods-JuCamera-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JuCamera-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DD809C3280E00E004A040DD756CC41C0 /* Pods-JuCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JuCamera.release.xcconfig"; sourceTree = "<group>"; };
+		ED50B2018617AB2F9E397147749E1B26 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		F094DFBF7C1E928F35B1448DB4044654 /* JuCamera-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JuCamera-prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00319F43A72BBB094CBC0F1573E92593 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		640E088665E52B3A6432B13448CD4FCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C41847B872DA67CC471428346AE8057 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				445B99A6E9D627CFAF881C0035BA761D /* JuCameraviewController.h */,
+				8D4518463CCFC86D38BFF868F240653E /* JuCameraviewController.m */,
+				3871E6A69B55494976BE6D1B55D5D7CA /* JuPlayVoice.h */,
+				B2E5F6609654B2C9FB35A862EDAF1628 /* JuPlayVoice.m */,
+				B080B215DF31AAA69C97DE8867A958CA /* JuRichScanCameraVC.h */,
+				783E71BE1B83FAAF9C69ACADB0A3F110 /* JuRichScanCameraVC.m */,
+				C02333F1E3FF36B6BF1E6DF05D5F8D53 /* JuTakePhotoCameraVC.h */,
+				C466FA3ECC5E4EBD221105B66D4A69F9 /* JuTakePhotoCameraVC.m */,
+				209220AC69CD54BD894A6AD57DB3CDFD /* UIImage+fixOrientation.h */,
+				4A451AEA84940593F9FAB9D79D05D3BA /* UIImage+fixOrientation.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		6A7DD238C692CD1BBF498A6DCE59B07F /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2EDA5E164511976C831FA16304509F5 /* JuCamera */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		76F88AEEA6ACC0CEA2C7173F5808D789 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				559A6BA250A9CC39A177DC319CBE9C19 /* JuCamera */,
+				0C1974FEA3ED493C5AA4199B62C59556 /* Pods-JuCamera */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7979F606B650450E8C9D4262EA255023 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				76031DE69EBF9852B877C4BF4BF9D6F8 /* JuCamera-dummy.m */,
+				F094DFBF7C1E928F35B1448DB4044654 /* JuCamera-prefix.pch */,
+				B6E080E4D1E49FB8F01B8069057322D2 /* JuCamera.debug.xcconfig */,
+				06FA419F1918F5A0C7E7CD8CB80C5E04 /* JuCamera.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "JuCamera/Pods/Target Support Files/JuCamera";
+			sourceTree = "<group>";
+		};
+		96BF05E5197E4DCA723B2911AF30F8E0 /* Pods-JuCamera */ = {
+			isa = PBXGroup;
+			children = (
+				D39E9183C71CDB9781491036512F04DD /* Pods-JuCamera-acknowledgements.markdown */,
+				097F5D19554AF230F08B82FA139461E7 /* Pods-JuCamera-acknowledgements.plist */,
+				CF863A318348C67A467917A4B310421F /* Pods-JuCamera-dummy.m */,
+				C8D78316AD4F2567D0B10E17C4666B99 /* Pods-JuCamera.debug.xcconfig */,
+				DD809C3280E00E004A040DD756CC41C0 /* Pods-JuCamera.release.xcconfig */,
+			);
+			name = "Pods-JuCamera";
+			path = "Target Support Files/Pods-JuCamera";
+			sourceTree = "<group>";
+		};
+		B2EDA5E164511976C831FA16304509F5 /* JuCamera */ = {
+			isa = PBXGroup;
+			children = (
+				4C41847B872DA67CC471428346AE8057 /* Core */,
+				DAB4037C7AB7AC7A7BAAD3651A9187A2 /* Pod */,
+				7979F606B650450E8C9D4262EA255023 /* Support Files */,
+			);
+			name = JuCamera;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				6A7DD238C692CD1BBF498A6DCE59B07F /* Development Pods */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				76F88AEEA6ACC0CEA2C7173F5808D789 /* Products */,
+				E88015C1E52F1B31FD2DB5E4243A5430 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAB4037C7AB7AC7A7BAAD3651A9187A2 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				558B2CACD33D7E5E6BDC27B187F3F4AC /* JuCamera.podspec */,
+				ED50B2018617AB2F9E397147749E1B26 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		E88015C1E52F1B31FD2DB5E4243A5430 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				96BF05E5197E4DCA723B2911AF30F8E0 /* Pods-JuCamera */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		40BC9D563A895440462D486FA4C91E26 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8E0608B30F6F6E2071A5E1A61A01A76 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A159FE728B07438882186A5A2E4394 /* JuCameraviewController.h in Headers */,
+				3FBFB6B669DDAD288B1A179FE7C97B44 /* JuPlayVoice.h in Headers */,
+				6F8FFE55DCC4A563F6B377CFEA2B29BA /* JuRichScanCameraVC.h in Headers */,
+				33FB05D2665A95F2D365AE292DCF599E /* JuTakePhotoCameraVC.h in Headers */,
+				CF8F87D2EF972BE4B2ED25B15AB75953 /* UIImage+fixOrientation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7E3C96C32A3A584F241CFBEEC446ADDB /* JuCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46288D55560D0E66D3BFB03290ADEF36 /* Build configuration list for PBXNativeTarget "JuCamera" */;
+			buildPhases = (
+				B8E0608B30F6F6E2071A5E1A61A01A76 /* Headers */,
+				33FCA5EEF722E05F0D57F97F435C5B32 /* Sources */,
+				640E088665E52B3A6432B13448CD4FCC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JuCamera;
+			productName = JuCamera;
+			productReference = 559A6BA250A9CC39A177DC319CBE9C19 /* JuCamera */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D41C4805E75AEAF4D64A3DCEA61CA6FE /* Pods-JuCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B3E9EE3551534DF63FC63F186D61A56 /* Build configuration list for PBXNativeTarget "Pods-JuCamera" */;
+			buildPhases = (
+				40BC9D563A895440462D486FA4C91E26 /* Headers */,
+				6D47868809580B2D83EA15935538396F /* Sources */,
+				00319F43A72BBB094CBC0F1573E92593 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED6808031D7958B7897327E15128F218 /* PBXTargetDependency */,
+			);
+			name = "Pods-JuCamera";
+			productName = "Pods-JuCamera";
+			productReference = 0C1974FEA3ED493C5AA4199B62C59556 /* Pods-JuCamera */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 76F88AEEA6ACC0CEA2C7173F5808D789 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E3C96C32A3A584F241CFBEEC446ADDB /* JuCamera */,
+				D41C4805E75AEAF4D64A3DCEA61CA6FE /* Pods-JuCamera */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33FCA5EEF722E05F0D57F97F435C5B32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				452C322A7A6BE582D3146A1841F1E2FF /* JuCamera-dummy.m in Sources */,
+				4C690E8F3A913A32DBA55AAB59AAB5EB /* JuCameraviewController.m in Sources */,
+				38196192DA9D9139D775778A25D731FC /* JuPlayVoice.m in Sources */,
+				5E0A9C0FDCA5ECB506F6E1F59BF4BEEA /* JuRichScanCameraVC.m in Sources */,
+				20515D1B4BAFCBD547B81F8391A92DC2 /* JuTakePhotoCameraVC.m in Sources */,
+				B032BE404E96C4ABA1D5E30CAFFE586C /* UIImage+fixOrientation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D47868809580B2D83EA15935538396F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AC91AE1CAFBE257A9507F503ED65431 /* Pods-JuCamera-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED6808031D7958B7897327E15128F218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JuCamera;
+			target = 7E3C96C32A3A584F241CFBEEC446ADDB /* JuCamera */;
+			targetProxy = 477A490BED08734E8310F9C72E3749FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		186B71F2517F233A716F01E393F375C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8D78316AD4F2567D0B10E17C4666B99 /* Pods-JuCamera.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		19791E34D3D42F72DC9F00DD4B48D411 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06FA419F1918F5A0C7E7CD8CB80C5E04 /* JuCamera.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/JuCamera/JuCamera-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = JuCamera;
+				PRODUCT_NAME = JuCamera;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		D9F73631C045D6592EF043D57A451D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD809C3280E00E004A040DD756CC41C0 /* Pods-JuCamera.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7E552B08EA45C17E19F23F5FB01D61C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6E080E4D1E49FB8F01B8069057322D2 /* JuCamera.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/JuCamera/JuCamera-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = JuCamera;
+				PRODUCT_NAME = JuCamera;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B3E9EE3551534DF63FC63F186D61A56 /* Build configuration list for PBXNativeTarget "Pods-JuCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				186B71F2517F233A716F01E393F375C1 /* Debug */,
+				D9F73631C045D6592EF043D57A451D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46288D55560D0E66D3BFB03290ADEF36 /* Build configuration list for PBXNativeTarget "JuCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7E552B08EA45C17E19F23F5FB01D61C /* Debug */,
+				19791E34D3D42F72DC9F00DD4B48D411 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
+				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
