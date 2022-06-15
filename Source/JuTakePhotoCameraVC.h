@@ -7,7 +7,7 @@
 //
 
 #import "JuCameraviewController.h"
-typedef NS_ENUM(NSInteger,JuCaptureOutputType){///< 订单状态
+typedef NS_ENUM(NSInteger,JuCaptureOutputType){
     JuCaptureOutputStillImage   =1,///< 拍照
     JuCaptureOutputVideoData    =2,///< 实时视频
     JuCaptureOutputMovieFile    =3,///< 音视频

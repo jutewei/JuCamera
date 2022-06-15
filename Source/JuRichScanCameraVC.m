@@ -27,8 +27,9 @@
         dispatch_queue_t queue = dispatch_queue_create("cameraQueue", NULL);
         juMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
         [juMetadataOutput setMetadataObjectsDelegate:self queue:queue];
-        [juCaptureSession addOutput:juMetadataOutput];
-        
+        if ([juCaptureSession canAddOutput:juMetadataOutput]) {
+              [juCaptureSession addOutput:juMetadataOutput];
+        }        
         [juMetadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode]];
         
     }

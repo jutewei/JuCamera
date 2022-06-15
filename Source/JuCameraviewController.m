@@ -18,11 +18,20 @@
     [super viewDidLoad];
     juDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if(juDevice) [self juInitSession];
+        if(self->juDevice) [self juInitSession];
+        [self juCheckAuthStatus];
     });
 
     // Do any additional setup after loading the view from its nib.
 }
+//相机权限检测
+-(void)juCheckAuthStatus{
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authStatus ==AVAuthorizationStatusDenied || authStatus==AVAuthorizationStatusRestricted){
+//        [JuAlertView shAlertTitle:@"无法使用iPhone相机" message:@"请在iPhone的“设置-隐私-相机”中允许访问相机"];
+    }
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self juStartRunning:YES];

@@ -7,6 +7,7 @@
 //
 
 #import "JuTakePhotoCameraVC.h"
+#import "UIImage+fixOrientation.h"
 
 @interface JuTakePhotoCameraVC ()<AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate>{
 //    AVCaptureFlashMode         juCurrentflashMode; // 当前闪光灯的模式
@@ -14,6 +15,7 @@
     AVCaptureVideoDataOutput    *juVideoDataOutput;
     AVCaptureAudioDataOutput    *juAudioDataOutput;
     BOOL isCheck;
+    BOOL isTakeIng;
     UIView *ju_camFocus;
 
 }
@@ -29,7 +31,7 @@
     // Do any additional setup after loading the view.
 }
 - (void)juInitCaptureOutput{
-   [super juInitCaptureOutput];
+    [super juInitCaptureOutput];
     [self juSetVideoOutput];
     juStillImageOutput = [[AVCaptureStillImageOutput alloc] init];
     //输出设置。AVVideoCodecJPEG   输出jpeg格式图片
@@ -65,6 +67,8 @@
     [juVideoDataOutput setSampleBufferDelegate:self queue:queue];
     NSString* key = (NSString*)kCVPixelBufferPixelFormatTypeKey;
     NSNumber* value = [NSNumber numberWithUnsignedLong:kCVPixelFormatType_32BGRA];
+//    NSNumber* value = [NSNumber numberWithUnsignedLong:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange];
+
     NSDictionary* videoSettings = [NSDictionary dictionaryWithObject:value forKey:key];
     [juVideoDataOutput setVideoSettings:videoSettings];
     if ([juCaptureSession  canAddOutput:juVideoDataOutput]) {
@@ -214,7 +218,8 @@
 //拍照
 - (void)shTakePhoto:(void (^)(UIImage *image))handle{
     
-    if (!juCaptureSession.isRunning)  return;
+    if (!juCaptureSession.isRunning||isTakeIng)  return;
+    isTakeIng=YES;
 
     if (_juPosition!=AVCaptureDevicePositionFront) {
         [self juStartFlash];
@@ -226,14 +231,17 @@
     [stillImageConnection setVideoScaleAndCropFactor:1];
     
     [juStillImageOutput captureStillImageAsynchronouslyFromConnection:stillImageConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
-        
-        NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+        NSLog(@"%ld",(long)curDeviceOrientation);
+        if (error==nil) {
+            NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            UIImage *image=[UIImage imageWithData:jpegData];
+            image = [image juFixOrientation];
+            handle(image);
+        }else{
+            handle(nil);
+        }
         self.isTakePhoto=YES;
-       
-        UIImage *image=[UIImage imageWithData:jpegData];
-        handle(image);
-        NSLog(@"图片 %@",image);
-        
+        isTakeIng=NO;
     }];
 }
 
