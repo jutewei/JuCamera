@@ -22,6 +22,7 @@
 }
 @property (weak, nonatomic) IBOutlet UIImageView *juImageView;
 @property (weak, nonatomic) IBOutlet UITextView *juTextView;
+@property (weak, nonatomic) IBOutlet UILabel *ju_labHint;
 
 //@property (nonatomic, strong) AVAudioPlayer *player;
 @end
@@ -30,10 +31,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _juTextView.textContainerInset=UIEdgeInsetsMake(10, 10, 10, 10);
     [_juTextView.layer setCornerRadius:4];
     [_juTextView.layer setMasksToBounds:YES];
     [_juImageView.layer setCornerRadius:4];
     [_juImageView.layer setMasksToBounds:YES];
+    
     [self setBarRightItem:@"扫一扫"];
     [self shSetNew:2|1|3];
     // Do any additional setup after loading the view, typically from a nib.
@@ -49,6 +53,10 @@
     };
     nav.modalPresentationStyle=0;
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+-(void)textViewDidChange:(UITextView *)textView{
+    _ju_labHint.hidden=textView.text.length;
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{

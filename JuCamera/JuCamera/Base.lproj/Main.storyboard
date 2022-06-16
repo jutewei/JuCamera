@@ -51,7 +51,7 @@
                                     <constraint firstAttribute="height" constant="160" id="hNo-mI-4LW"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="HKL-T0-Oc5"/>
@@ -68,15 +68,23 @@
                                     <action selector="juTouchSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4I1-BP-utv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htp-FA-eWf">
+                                <rect key="frame" x="26" y="74" width="59" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fFq-yu-lP2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2uQ-ge-Lxg"/>
                             <constraint firstItem="fKX-fl-tSq" firstAttribute="top" secondItem="NZI-mr-KD5" secondAttribute="bottom" constant="20" id="65z-Jg-iZf"/>
                             <constraint firstItem="nd9-3L-GdL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ly0-d5-vig"/>
+                            <constraint firstItem="Htp-FA-eWf" firstAttribute="top" secondItem="fKX-fl-tSq" secondAttribute="top" constant="10" id="Mn1-Yk-jZW"/>
                             <constraint firstItem="fKX-fl-tSq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="TVu-2i-E9u"/>
                             <constraint firstItem="nd9-3L-GdL" firstAttribute="leading" secondItem="fFq-yu-lP2" secondAttribute="leading" id="d0O-rA-017"/>
                             <constraint firstItem="fKX-fl-tSq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iww-pW-dc2"/>
+                            <constraint firstItem="Htp-FA-eWf" firstAttribute="leading" secondItem="fKX-fl-tSq" secondAttribute="leading" constant="10" id="rV4-7P-YUR"/>
                             <constraint firstItem="fFq-yu-lP2" firstAttribute="top" secondItem="fKX-fl-tSq" secondAttribute="bottom" constant="20" id="u7v-7Z-o8C"/>
                             <constraint firstItem="nd9-3L-GdL" firstAttribute="top" secondItem="fFq-yu-lP2" secondAttribute="bottom" constant="30" id="uIG-ez-0ni"/>
                         </constraints>
@@ -85,6 +93,7 @@
                     <connections>
                         <outlet property="juImageView" destination="fFq-yu-lP2" id="azv-2y-Vej"/>
                         <outlet property="juTextView" destination="fKX-fl-tSq" id="zvv-RI-Uyx"/>
+                        <outlet property="ju_labHint" destination="Htp-FA-eWf" id="sFU-Ro-Goa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -103,11 +112,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lDz-X4-8f0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lDz-X4-8f0">
                                 <rect key="frame" x="16" y="60" width="343" height="407"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgP-Be-dcW">
