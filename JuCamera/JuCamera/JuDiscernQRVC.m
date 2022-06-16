@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _ju_imageView.image=_ju_image;
+    [self setBarLeftItem:[UIImage imageNamed:@"navRoundBack"]];
     // Do any additional setup after loading the view.
 }
 
@@ -55,6 +56,10 @@
             }
         }
     }
+}
+-(void)zlSetManageConfig{
+    [super zlSetManageConfig];
+    self.ju_styleManage.zl_barStatus=JuNavBarStatusClear;
 }
 /*
 #pragma mark - Navigation
