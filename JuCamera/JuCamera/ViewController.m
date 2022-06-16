@@ -69,6 +69,7 @@
 }
 
 - (IBAction)juTouchSave:(id)sender{
+
     UIImage *image=_juImageView.image;
     if (image) {
         [image juSaveRHAssetPhoto:^(PHAsset *asset) {

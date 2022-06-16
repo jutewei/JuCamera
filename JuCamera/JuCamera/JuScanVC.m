@@ -7,6 +7,10 @@
 //
 
 #import "JuScanVC.h"
+#import "JuPhotoPickers.h"
+#import "JuDiscernQRVC.h"
+#import "UIImage+PhotoManage.h"
+
 @interface JuScanVC ()
 
 @end
@@ -15,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor=[UIColor blackColor];
+    
     __weak typeof(self) weakSelf = self;
     JuRichScanCameraVC *vc=[[JuRichScanCameraVC alloc]init];
     vc.ju_handle = ^(id  _Nullable result) {
@@ -23,7 +30,25 @@
     [self.view addSubview:vc.view];
     [self addChildViewController:vc];
     [self setBarLeftItem:[UIImage imageNamed:@"navRoundBack"]];
+    [self setBarRightItem:@"相册"];
     // Do any additional setup after loading the view.
+}
+-(void)zlTouchRightItems:(UIButton *)sender{
+    UIViewController *vc= [[JuPhotoPickers sharedInstance]juAlbumPick:JuPhotoAlbumImage maxNum:1 complete:^(NSArray *result) {
+        [result.firstObject juGetDefault:^(UIImage *image) {
+            [self juJumpLook:image];
+        }];
+      }];
+    [self presentViewController:vc.parentViewController animated:YES completion:nil];
+}
+
+-(void)juJumpLook:(UIImage *)image{
+    JuDiscernQRVC *vc=[JuDiscernQRVC juInitMainStoryVC];
+    vc.ju_image=image;
+    vc.zl_handleResult = ^(id  _Nullable result) {
+        [self juSetReslut:result];
+    };
+    [self juPushViewController:vc];
 }
 
 -(void)juSetReslut:(NSString *)detectionString{
@@ -35,6 +60,7 @@
 -(void)zlSetManageConfig{
     [super zlSetManageConfig];
     self.ju_styleManage.zl_barStatus=JuNavBarStatusClear;
+    self.ju_styleManage.zl_barItemColor=UIColor.whiteColor;
 }
 /*
 #pragma mark - Navigation

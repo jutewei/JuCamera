@@ -31,6 +31,7 @@
     }
     // Do any additional setup after loading the view.
 }
+
 - (IBAction)juTouchNext:(id)sender{
     JuWebVC *vc=[[JuWebVC alloc]init];
     vc.zl_url=_ju_result;

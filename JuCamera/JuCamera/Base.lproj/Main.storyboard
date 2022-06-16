@@ -8,6 +8,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Ju DiscernQRVC-->
+        <scene sceneID="jwG-MA-X7N">
+            <objects>
+                <viewController storyboardIdentifier="JuDiscernQRVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FOp-ed-BOP" customClass="JuDiscernQRVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rbp-vo-X3E"/>
+                        <viewControllerLayoutGuide type="bottom" id="dRI-QC-Vs4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BjI-q8-ZDp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OzB-yy-7cR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dRI-QC-Vs4" firstAttribute="top" secondItem="OzB-yy-7cR" secondAttribute="bottom" id="Qcv-Bh-gV8"/>
+                            <constraint firstItem="OzB-yy-7cR" firstAttribute="leading" secondItem="BjI-q8-ZDp" secondAttribute="leading" id="XPa-la-pCP"/>
+                            <constraint firstItem="OzB-yy-7cR" firstAttribute="top" secondItem="Rbp-vo-X3E" secondAttribute="bottom" id="u3U-L0-XUF"/>
+                            <constraint firstAttribute="trailing" secondItem="OzB-yy-7cR" secondAttribute="trailing" id="wsp-3m-bBY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ju_imageView" destination="OzB-yy-7cR" id="sgS-6d-d9F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WrJ-xG-3wc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2170" y="-1018"/>
+        </scene>
         <!--Base NavigationC-->
         <scene sceneID="eE4-BY-hUq">
             <objects>
