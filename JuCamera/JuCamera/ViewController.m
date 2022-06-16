@@ -30,9 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_juTextView.layer setCornerRadius:2];
+    [_juTextView.layer setCornerRadius:4];
     [_juTextView.layer setMasksToBounds:YES];
-    
+    [_juImageView.layer setCornerRadius:4];
+    [_juImageView.layer setMasksToBounds:YES];
     [self setBarRightItem:@"扫一扫"];
     [self shSetNew:2|1|3];
     // Do any additional setup after loading the view, typically from a nib.
