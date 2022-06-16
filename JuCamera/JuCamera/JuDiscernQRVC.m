@@ -17,8 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _ju_imageView.image=_ju_image;
+    self.view.backgroundColor=UIColor.blackColor;
     [self setBarLeftItem:[UIImage imageNamed:@"navRoundBack"]];
+    _ju_imageView.image=_ju_image;
+
     // Do any additional setup after loading the view.
 }
 
