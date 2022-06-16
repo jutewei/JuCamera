@@ -11,6 +11,8 @@
 
 @interface JuScanReslutVC ()
 @property (nonatomic,weak) IBOutlet UITextView *ju_textView;
+@property (nonatomic,weak) IBOutlet UIButton *ju_btnNext;
+
 @end
 
 @implementation JuScanReslutVC
@@ -21,15 +23,16 @@
     _ju_textView.text=_ju_result;
     NSURL *url=[NSURL URLWithString:_ju_result];
     if (url.scheme.length) {
-        [self setBarRightItem:@"跳转"];
+        self.ju_btnNext.hidden = NO;
     }
     // Do any additional setup after loading the view.
 }
--(void)zlTouchRightItems:(UIButton *)sender{
+- (IBAction)juTouchNext:(id)sender{
     JuWebVC *vc=[[JuWebVC alloc]init];
     vc.zl_url=_ju_result;
     [self juPushViewController:vc];
-}/*
+}
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
