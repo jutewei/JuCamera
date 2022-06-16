@@ -33,9 +33,14 @@
 }
 
 - (IBAction)juTouchNext:(id)sender{
-    JuWebVC *vc=[[JuWebVC alloc]init];
-    vc.zl_url=_ju_result;
-    [self juPushViewController:vc];
+    NSURL *url=[NSURL URLWithString:_ju_result];
+    if ([url.scheme hasPrefix:@"http"]) {
+        JuWebVC *vc=[[JuWebVC alloc]init];
+        vc.zl_url=_ju_result;
+        [self juPushViewController:vc];
+    }else{
+        [[UIApplication sharedApplication]openURL:url];
+    }
 }
 /*
 #pragma mark - Navigation
