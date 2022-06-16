@@ -4,17 +4,240 @@ PODS:
     - JuCamera/PABase (= 1.0.0)
   - JuCamera/Core (1.0.0)
   - JuCamera/PABase (1.0.0)
+  - JUJsonModel (1.0.4)
+  - JuLayout/LayoutObjC (1.3.3)
+  - MBProgressHUD (0.8)
+  - PABaseProject (1.0.9):
+    - PABaseProject/BaseModel (= 1.0.9)
+    - PABaseProject/Category (= 1.0.9)
+    - PABaseProject/Common (= 1.0.9)
+    - PABaseProject/Define (= 1.0.9)
+    - PABaseProject/JuAlertView (= 1.0.9)
+    - PABaseProject/JuColor (= 1.0.9)
+    - PABaseProject/JuKeyBoard (= 1.0.9)
+    - PABaseProject/JuSecurity (= 1.0.9)
+    - PABaseProject/JuView (= 1.0.9)
+  - PABaseProject/BaseModel (1.0.9):
+    - JUJsonModel
+  - PABaseProject/Category (1.0.9)
+  - PABaseProject/Common (1.0.9):
+    - PABaseProject/Category
+    - PABaseProject/Define
+    - PABaseProject/JuView
+  - PABaseProject/Define (1.0.9):
+    - PABaseProject/Category
+  - PABaseProject/JuAlertView (1.0.9):
+    - PABaseProject/Define
+  - PABaseProject/JuColor (1.0.9):
+    - PABaseProject/Define
+  - PABaseProject/JuKeyBoard (1.0.9):
+    - PABaseProject/Define
+  - PABaseProject/JuSecurity (1.0.9):
+    - PABaseProject/Define
+  - PABaseProject/JuView (1.0.9)
+  - PABaseUIKit (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PABaseUIKit/PACommon (= 1.0.0)
+    - PABaseUIKit/PAConfig (= 1.0.0)
+    - PABaseUIKit/PAController (= 1.0.0)
+    - PABaseUIKit/PAModel (= 1.0.0)
+    - PABaseUIKit/PAView (= 1.0.0)
+    - PABaseUIKit/PAVModel (= 1.0.0)
+    - PABaseUIKit/Resource (= 1.0.0)
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PABaseUIKit/PACommon/Category (= 1.0.0)
+    - PABaseUIKit/PACommon/JuButton (= 1.0.0)
+    - PABaseUIKit/PACommon/JuCycleScroll (= 1.0.0)
+    - PABaseUIKit/PACommon/JuDialogs (= 1.0.0)
+    - PABaseUIKit/PACommon/JuLogs (= 1.0.0)
+    - PABaseUIKit/PACommon/JUMediator (= 1.0.0)
+    - PABaseUIKit/PACommon/JuPickView (= 1.0.0)
+    - PABaseUIKit/PACommon/JuRefresh (= 1.0.0)
+    - PABaseUIKit/PACommon/JuTextField (= 1.0.0)
+    - PABaseUIKit/PACommon/JuView (= 1.0.0)
+    - PABaseUIKit/PACommon/JuWKWeb (= 1.0.0)
+    - PABaseUIKit/PACommon/Public (= 1.0.0)
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/Category (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuButton (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuCycleScroll (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuDialogs (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuLogs (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JUMediator (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuPickView (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuRefresh (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuTextField (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuView (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/JuWKWeb (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PACommon/Public (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAConfig (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAController (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PABaseUIKit/PAController/Manage (= 1.0.0)
+    - PABaseUIKit/PAController/VCEx (= 1.0.0)
+    - PABaseUIKit/PAController/View (= 1.0.0)
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAController/Manage (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAController/VCEx (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAController/View (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAModel (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAView (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PABaseUIKit/PAView/BaseCell (= 1.0.0)
+    - PABaseUIKit/PAView/BaseContent (= 1.0.0)
+    - PABaseUIKit/PAView/BaseView (= 1.0.0)
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAView/BaseCell (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAView/BaseContent (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAView/BaseView (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/PAVModel (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PABaseUIKit/Resource (1.0.0):
+    - JuLayout/LayoutObjC
+    - PABaseProject
+    - PAPopoverKit/HudEx
+    - SDWebImage
+  - PAPopoverKit/HudEx (1.0.0):
+    - MBProgressHUD (= 0.8)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
 
 DEPENDENCIES:
   - JuCamera (from `../`)
+  - PABaseProject (from `http://code.paic.com.cn/iosmodules/pabase.git`, branch `feature/channel`)
+  - PABaseUIKit (from `http://code.paic.com.cn/iosmodules/pabaseuikit.git`, branch `develop`)
+
+SPEC REPOS:
+  http://code.paic.com.cn/iosmodules/paspec.git:
+    - PAPopoverKit
+  https://github.com/CocoaPods/Specs.git:
+    - JUJsonModel
+    - JuLayout
+    - MBProgressHUD
+    - SDWebImage
 
 EXTERNAL SOURCES:
   JuCamera:
     :path: "../"
+  PABaseProject:
+    :branch: feature/channel
+    :git: http://code.paic.com.cn/iosmodules/pabase.git
+  PABaseUIKit:
+    :branch: develop
+    :git: http://code.paic.com.cn/iosmodules/pabaseuikit.git
+
+CHECKOUT OPTIONS:
+  PABaseProject:
+    :commit: 4871c742c224eb260c1ddcd1f584ccaacc38a321
+    :git: http://code.paic.com.cn/iosmodules/pabase.git
+  PABaseUIKit:
+    :commit: 10075e9f694a4d3a4426a0fc9c2350da336a5df6
+    :git: http://code.paic.com.cn/iosmodules/pabaseuikit.git
 
 SPEC CHECKSUMS:
   JuCamera: a9273cba9628bf79acb9c4a8ee57d06721d2ef29
+  JUJsonModel: bc4af80614cc23c84213382281e3c40a37e5bffb
+  JuLayout: a00245aa7f3a06f5455184008d4bff413d352704
+  MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251
+  PABaseProject: 18284dd2e107abd418a63353337f65ff3835ef8c
+  PABaseUIKit: a87f93e90ae309204e6c55c7b59b360c9d10c11c
+  PAPopoverKit: 7cf204d84311da242b58cc101d44ad9cc49fd3fb
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
 
-PODFILE CHECKSUM: cbf6e0b7ed818b1fa110b3532785bed9388e7d98
+PODFILE CHECKSUM: b967ada32b28c4ace7fa40ec50475184cc7fccc8
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.10.1

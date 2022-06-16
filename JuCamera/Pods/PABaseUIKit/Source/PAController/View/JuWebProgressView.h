@@ -1,0 +1,30 @@
+//
+//  NJKWebViewProgressView.h
+// iOS 7 Style WebView Progress Bar
+//
+//  Created by Satoshi Aasano on 11/16/13.
+//  Copyright (c) 2013 Satoshi Asano. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface JuWebProgressView : UIView
+@property (nonatomic) float progress;
+
+@property (nonatomic) UIView *progressBarView;
+@property (nonatomic) NSTimeInterval barAnimationDuration; // default 0.1
+@property (nonatomic) NSTimeInterval fadeAnimationDuration; // default 0.27
+@property (nonatomic) NSTimeInterval fadeOutDelay; // default 0.1
+
++ (JuWebProgressView *)juInitWithView:(UIView *)view;
+
+- (void)setProgress:(float)progress animated:(BOOL)animated;
+
+@end
+
+
+@interface JuWebMarkView : UIView
++(instancetype)initWithView:(UIScrollView *)scrollView;
+@property(nonatomic,copy)NSString *mt_urlHost;
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView;
+@end

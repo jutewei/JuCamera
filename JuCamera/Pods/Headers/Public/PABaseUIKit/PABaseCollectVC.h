@@ -1,0 +1,1 @@
+../../../PABaseUIKit/Source/PAController/PABaseCollectVC.h

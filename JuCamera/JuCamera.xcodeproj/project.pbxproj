@@ -120,6 +120,7 @@
 				EB9CC2CC1F974BAA0011BB4D /* Sources */,
 				EB9CC2CD1F974BAA0011BB4D /* Frameworks */,
 				EB9CC2CE1F974BAA0011BB4D /* Resources */,
+				343DD6AA5E2CBCFC795034A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,6 +182,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		343DD6AA5E2CBCFC795034A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JuCamera/Pods-JuCamera-resources.sh",
+				"${PODS_ROOT}/PABaseUIKit/Source/Resource/arrow@2x.png",
+				"${PODS_ROOT}/PABaseUIKit/Source/Resource/main_NavBarBack@2x.png",
+				"${PODS_ROOT}/PABaseUIKit/Source/Resource/main_NavBarBack@3x.png",
+				"${PODS_ROOT}/PABaseUIKit/Source/Resource/main_navBarClose@2x.png",
+				"${PODS_ROOT}/PABaseUIKit/Source/Resource/main_navBarClose@3x.png",
+				"${PODS_ROOT}/PABaseUIKit/Source/Resource/net_refresh@2x.png",
+				"${PODS_ROOT}/PABaseUIKit/Source/Resource/net_refresh@3x.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/arrow@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/main_NavBarBack@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/main_NavBarBack@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/main_navBarClose@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/main_navBarClose@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/net_refresh@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/net_refresh@3x.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JuCamera/Pods-JuCamera-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A7BD744B6A52DE460F98069C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

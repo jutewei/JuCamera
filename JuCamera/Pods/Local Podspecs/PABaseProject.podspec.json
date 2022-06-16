@@ -1,0 +1,100 @@
+{
+  "name": "PABaseProject",
+  "version": "1.0.9",
+  "summary": "基础工程封装",
+  "homepage": "http://code.paic.com.cn/iosmodules/pabase",
+  "authors": {
+    "cmb": "zhutianwei224@pingan.com.cn"
+  },
+  "license": {
+    "type": "Copyright",
+    "text": "    © 2021-2021 pingan. All rights reserved.\n"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "http://code.paic.com.cn/iosmodules/pabase.git",
+    "tag": "1.0.9"
+  },
+  "subspecs": [
+    {
+      "name": "BaseModel",
+      "source_files": "Source/BaseModel/*.{h,m}",
+      "dependencies": {
+        "JUJsonModel": [
+
+        ]
+      }
+    },
+    {
+      "name": "Category",
+      "source_files": "Source/Category/*.{h,m}"
+    },
+    {
+      "name": "Common",
+      "source_files": "Source/Common/*.{h,m}",
+      "dependencies": {
+        "PABaseProject/Define": [
+
+        ],
+        "PABaseProject/Category": [
+
+        ],
+        "PABaseProject/JuView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Define",
+      "source_files": "Source/Define/*.{h,m}",
+      "dependencies": {
+        "PABaseProject/Category": [
+
+        ]
+      }
+    },
+    {
+      "name": "JuAlertView",
+      "source_files": "Source/JuAlertView/*.{h,m}",
+      "dependencies": {
+        "PABaseProject/Define": [
+
+        ]
+      }
+    },
+    {
+      "name": "JuColor",
+      "source_files": "Source/JuColor/*.{h,m}",
+      "dependencies": {
+        "PABaseProject/Define": [
+
+        ]
+      }
+    },
+    {
+      "name": "JuKeyBoard",
+      "source_files": "Source/JuKeyBoard/*.{h,m}",
+      "dependencies": {
+        "PABaseProject/Define": [
+
+        ]
+      }
+    },
+    {
+      "name": "JuSecurity",
+      "source_files": "Source/JuSecurity/*.{h,m}",
+      "dependencies": {
+        "PABaseProject/Define": [
+
+        ]
+      }
+    },
+    {
+      "name": "JuView",
+      "source_files": "Source/JuView/*.{h,m}"
+    }
+  ]
+}

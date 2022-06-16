@@ -1,0 +1,143 @@
+{
+  "name": "PABaseUIKit",
+  "version": "1.0.0",
+  "summary": "基础UI组件",
+  "homepage": "http://code.paic.com.cn/iosmodules/pabaseuikit",
+  "authors": {
+    "cmb": "zhutianwei224@pingan.com.cn"
+  },
+  "license": {
+    "type": "Copyright",
+    "text": "    © 2021-2022 pingan. All rights reserved.\n"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "http://code.paic.com.cn/iosmodules/pabaseuikit.git",
+    "tag": "1.0.0"
+  },
+  "prefix_header_contents": "#ifdef __OBJC__\n\n    #import \"JuSystemDefine.h\"\n    #import \"JuFontColor.h\"\n    #import \"PAFontColor.h\"\n    #import \"JuLayoutFrame.h\"\n    #import \"MBProgressHUD+Share.h\"\n    #import \"JuSharedInstance.h\"\n    #import \"JuThreadManage.h\"\n    #import \"PAMainColor.h\"\n\n#endif",
+  "dependencies": {
+    "PABaseProject": [
+
+    ],
+    "JuLayout/LayoutObjC": [
+
+    ],
+    "PAPopoverKit/HudEx": [
+
+    ],
+    "SDWebImage": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "PAConfig",
+      "source_files": "Source/*.{h,m}"
+    },
+    {
+      "name": "PACommon",
+      "subspecs": [
+        {
+          "name": "Category",
+          "source_files": "Source/PACommon/Category/**/*.{h,m}"
+        },
+        {
+          "name": "JuLogs",
+          "source_files": "Source/PACommon/JuLogs/**/*.{h,m}"
+        },
+        {
+          "name": "JUMediator",
+          "source_files": "Source/PACommon/JUMediator/**/*.{h,m}"
+        },
+        {
+          "name": "JuPickView",
+          "source_files": "Source/PACommon/JuPickView/**/*.{h,m}"
+        },
+        {
+          "name": "JuRefresh",
+          "source_files": "Source/PACommon/JuRefresh/**/*.{h,m}"
+        },
+        {
+          "name": "JuWKWeb",
+          "source_files": "Source/PACommon/JuWKWeb/**/*.{h,m}"
+        },
+        {
+          "name": "Public",
+          "source_files": "Source/PACommon/Public/**/*.{h,m}"
+        },
+        {
+          "name": "JuTextField",
+          "source_files": "Source/PACommon/JuTextField/**/*.{h,m}"
+        },
+        {
+          "name": "JuButton",
+          "source_files": "Source/PACommon/JuButton/**/*.{h,m}"
+        },
+        {
+          "name": "JuCycleScroll",
+          "source_files": "Source/PACommon/JuCycleScroll/**/*.{h,m}"
+        },
+        {
+          "name": "JuDialogs",
+          "source_files": "Source/PACommon/JuDialogs/**/*.{h,m}"
+        },
+        {
+          "name": "JuView",
+          "source_files": "Source/PACommon/JuView/**/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "PAController",
+      "source_files": "Source/PAController/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Manage",
+          "source_files": "Source/PAController/Manage/*.{h,m}"
+        },
+        {
+          "name": "VCEx",
+          "source_files": "Source/PAController/VCEx/*.{h,m}"
+        },
+        {
+          "name": "View",
+          "source_files": "Source/PAController/View/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "PAModel",
+      "source_files": "Source/PAModel/**/*.{h,m}"
+    },
+    {
+      "name": "PAView",
+      "source_files": "Source/PAView/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "BaseCell",
+          "source_files": "Source/PAView/BaseCell/*.{h,m}"
+        },
+        {
+          "name": "BaseContent",
+          "source_files": "Source/PAView/BaseContent/*.{h,m}"
+        },
+        {
+          "name": "BaseView",
+          "source_files": "Source/PAView/BaseView/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "PAVModel",
+      "source_files": "Source/PAVModel/**/*.{h,m}"
+    },
+    {
+      "name": "Resource",
+      "resources": "Source/Resource/*.png"
+    }
+  ]
+}

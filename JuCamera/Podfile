@@ -1,14 +1,17 @@
 #workspace 'JuCamera.xcworkspace'
 
 # public specs
-# source 'https://github.com/Cocoapods/Specs.git'
-# source 'http://code.paic.com.cn/iosmodules/paspec.git'
+ source 'https://github.com/Cocoapods/Specs.git'
+ source 'http://code.paic.com.cn/iosmodules/paspec.git'
 
 platform :ios, '9.0' 
 #inhibit_all_warnings!
 
 target 'JuCamera' do
      pod 'JuCamera', :path => '../'
+     pod 'PABaseUIKit',    :git =>'http://code.paic.com.cn/iosmodules/pabaseuikit.git', :branch => 'develop'
+     pod 'PABaseProject',  :git =>'http://code.paic.com.cn/iosmodules/pabase.git', :branch => 'feature/channel'
+
 end
 
 
