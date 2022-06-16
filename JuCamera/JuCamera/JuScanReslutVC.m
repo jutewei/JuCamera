@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _ju_textView.textContainerInset=UIEdgeInsetsMake(5, 5, 5, 5);
     [_ju_textView.layer setCornerRadius:4];
     [_ju_textView.layer setMasksToBounds:YES];
     

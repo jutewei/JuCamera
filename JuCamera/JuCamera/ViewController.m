@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"二维码";
-    _juTextView.textContainerInset=UIEdgeInsetsMake(10, 10, 10, 10);
+    _juTextView.textContainerInset=UIEdgeInsetsMake(10, 8, 10, 8);
     [_juTextView.layer setCornerRadius:4];
     [_juTextView.layer setMasksToBounds:YES];
     [_juImageView.layer setCornerRadius:4];
