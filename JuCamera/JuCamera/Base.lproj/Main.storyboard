@@ -26,9 +26,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dRI-QC-Vs4" firstAttribute="top" secondItem="OzB-yy-7cR" secondAttribute="bottom" id="Qcv-Bh-gV8"/>
+                            <constraint firstAttribute="bottom" secondItem="OzB-yy-7cR" secondAttribute="bottom" id="Qcv-Bh-gV8"/>
                             <constraint firstItem="OzB-yy-7cR" firstAttribute="leading" secondItem="BjI-q8-ZDp" secondAttribute="leading" id="XPa-la-pCP"/>
-                            <constraint firstItem="OzB-yy-7cR" firstAttribute="top" secondItem="Rbp-vo-X3E" secondAttribute="bottom" id="u3U-L0-XUF"/>
+                            <constraint firstItem="OzB-yy-7cR" firstAttribute="top" secondItem="BjI-q8-ZDp" secondAttribute="top" id="u3U-L0-XUF"/>
                             <constraint firstAttribute="trailing" secondItem="OzB-yy-7cR" secondAttribute="trailing" id="wsp-3m-bBY"/>
                         </constraints>
                     </view>
