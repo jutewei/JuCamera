@@ -14,6 +14,8 @@
 #import "UIImage+PhotoManage.h"
 #import "MBProgressHUD+Share.h"
 #import "JuScanReslutVC.h"
+#import "PABaseNavigationC.h"
+
 //#import <AVFoundation/AVFoundation.h>
 @interface ViewController ()<UITextViewDelegate>{
 //    JuPlayVoice *ju_playVoice;
@@ -33,13 +35,14 @@
 
 -(void)zlTouchRightItems:(UIButton *)sender{
     JuScanVC *vc=[[JuScanVC alloc]init];
+    PABaseNavigationC *nav=[PABaseNavigationC zlBasicNation:vc];
     vc.ju_handle = ^(id  _Nullable result) {
-        JuScanReslutVC *vc=[[JuScanReslutVC alloc]init];
+        JuScanReslutVC *vc=[JuScanReslutVC juInitMainStoryVC];
         vc.ju_result=result;
         [self juPushViewController:vc];
     };
-    vc.modalPresentationStyle=0;
-    [self presentViewController:vc animated:YES completion:nil];
+    nav.modalPresentationStyle=0;
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{

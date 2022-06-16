@@ -7,7 +7,6 @@
 //
 
 #import "JuScanVC.h"
-
 @interface JuScanVC ()
 
 @end
@@ -16,15 +15,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    __weak typeof(self) weakSelf = self;
+    JuRichScanCameraVC *vc=[[JuRichScanCameraVC alloc]init];
+    vc.ju_handle = ^(id  _Nullable result) {
+        [weakSelf juSetReslut:result];
+    };
+    [self.view addSubview:vc.view];
+    [self addChildViewController:vc];
+    [self setBarLeftItem:[UIImage imageNamed:@"navRoundBack"]];
     // Do any additional setup after loading the view.
 }
+
 -(void)juSetReslut:(NSString *)detectionString{
     if (self.ju_handle) {
         self.ju_handle(detectionString);
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+-(void)zlSetManageConfig{
+    [super zlSetManageConfig];
+    self.ju_styleManage.zl_barStatus=JuNavBarStatusClear;
+}
 /*
 #pragma mark - Navigation
 

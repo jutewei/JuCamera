@@ -8,6 +8,7 @@
 
 #import "JuScanReslutVC.h"
 #import "JuWebVC.h"
+
 @interface JuScanReslutVC ()
 @property (nonatomic,weak) IBOutlet UITextView *ju_textView;
 @end
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"扫描结果";
     _ju_textView.text=_ju_result;
     NSURL *url=[NSURL URLWithString:_ju_result];
     if (url.scheme.length) {

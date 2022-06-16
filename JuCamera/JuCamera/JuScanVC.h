@@ -6,11 +6,13 @@
 //  Copyright © 2022 Juvid. All rights reserved.
 //
 
+#import "PABaseVC.h"
 #import "JuRichScanCameraVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JuScanVC : JuRichScanCameraVC
+@interface JuScanVC : PABaseVC
+@property (nonatomic,copy) JuScanHandle ju_handle;
 
 @end
 

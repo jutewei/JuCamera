@@ -93,7 +93,7 @@
         <!--Ju Scan ReslutVC-->
         <scene sceneID="76R-Nj-z56">
             <objects>
-                <viewController id="Hvb-m4-MZb" customClass="JuScanReslutVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JuScanReslutVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hvb-m4-MZb" customClass="JuScanReslutVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vVJ-gM-msK"/>
                         <viewControllerLayoutGuide type="bottom" id="g2s-yA-FAF"/>
