@@ -6,9 +6,9 @@
 //  Copyright © 2017年 Juvid. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PABaseVC.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : PABaseVC
 
 
 @end

@@ -11,6 +11,7 @@ target 'JuCamera' do
      pod 'JuCamera', :path => '../'
      pod 'PABaseUIKit',    :git =>'http://code.paic.com.cn/iosmodules/pabaseuikit.git', :branch => 'develop'
      pod 'PABaseProject',  :git =>'http://code.paic.com.cn/iosmodules/pabase.git', :branch => 'feature/channel'
+     pod 'PAImagePick',    :git =>'ssh://git@code.paic.com.cn:8006/iosmodules/paimagepick.git', :branch => 'feature/channel'
 
 end
 

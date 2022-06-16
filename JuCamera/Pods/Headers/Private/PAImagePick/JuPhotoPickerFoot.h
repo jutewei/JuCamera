@@ -1,0 +1,1 @@
+../../../PAImagePick/Source/JuAlbums/JuPhotoPickerFoot.h

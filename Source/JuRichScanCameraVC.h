@@ -8,8 +8,10 @@
 
 #import "JuCameraviewController.h"
 
+typedef void(^__nullable JuScanHandle)(id _Nullable result);             //
+
 @interface JuRichScanCameraVC : JuCameraviewController{
    
 }
-
+@property (nonatomic,copy) JuScanHandle ju_handle;
 @end

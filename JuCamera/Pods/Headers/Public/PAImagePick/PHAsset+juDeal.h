@@ -1,0 +1,1 @@
+../../../PAImagePick/Source/JuDeal/PHAsset+juDeal.h

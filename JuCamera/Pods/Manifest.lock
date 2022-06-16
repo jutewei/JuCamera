@@ -1,4 +1,7 @@
 PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - JuCamera (1.0.0):
     - JuCamera/Core (= 1.0.0)
     - JuCamera/PABase (= 1.0.0)
@@ -190,6 +193,52 @@ PODS:
     - PABaseProject
     - PAPopoverKit/HudEx
     - SDWebImage
+  - PADataManage (1.0.0):
+    - PADataManage/JuDBCache (= 1.0.0)
+    - PADataManage/JuFileCache (= 1.0.0)
+    - PADataManage/JuURLCache (= 1.0.0)
+  - PADataManage/JuDBCache (1.0.0):
+    - FMDB
+    - JUJsonModel
+  - PADataManage/JuFileCache (1.0.0)
+  - PADataManage/JuURLCache (1.0.0)
+  - PAImageEdit (1.0.9):
+    - PAImageEdit/Compression (= 1.0.9)
+    - PAImageEdit/Mosaic (= 1.0.9)
+  - PAImageEdit/Compression (1.0.9):
+    - PABaseProject/BaseModel
+    - PABaseProject/Common
+  - PAImageEdit/Mosaic (1.0.9):
+    - JuLayout/LayoutObjC
+  - PAImagePick (1.1.6):
+    - PAImagePick/Image (= 1.1.6)
+    - PAImagePick/JuAlbums (= 1.1.6)
+    - PAImagePick/JuAlbumsPreview (= 1.1.6)
+    - PAImagePick/JuBase (= 1.1.6)
+    - PAImagePick/JuDeal (= 1.1.6)
+    - PAImagePick/JuDocument (= 1.1.6)
+    - PAImagePick/JuImagePreview (= 1.1.6)
+    - PAImagePick/JuPicker (= 1.1.6)
+  - PAImagePick/Image (1.1.6)
+  - PAImagePick/JuAlbums (1.1.6):
+    - PAImagePick/JuAlbumsPreview
+  - PAImagePick/JuAlbumsPreview (1.1.6):
+    - JuLayout/LayoutObjC
+    - PAImagePick/JuDeal
+  - PAImagePick/JuBase (1.1.6)
+  - PAImagePick/JuDeal (1.1.6):
+    - PADataManage
+    - PAImageEdit
+    - PAImagePick/JuBase
+  - PAImagePick/JuDocument (1.1.6)
+  - PAImagePick/JuImagePreview (1.1.6):
+    - PAImagePick/JuAlbumsPreview
+    - SDWebImage
+  - PAImagePick/JuPicker (1.1.6):
+    - PAImagePick/JuAlbums
+    - PAImagePick/JuBase
+    - PAImagePick/JuDeal
+    - PAImagePick/JuDocument
   - PAPopoverKit/HudEx (1.0.0):
     - MBProgressHUD (= 0.8)
   - SDWebImage (5.12.5):
@@ -200,11 +249,15 @@ DEPENDENCIES:
   - JuCamera (from `../`)
   - PABaseProject (from `http://code.paic.com.cn/iosmodules/pabase.git`, branch `feature/channel`)
   - PABaseUIKit (from `http://code.paic.com.cn/iosmodules/pabaseuikit.git`, branch `develop`)
+  - "PAImagePick (from `ssh://git@code.paic.com.cn:8006/iosmodules/paimagepick.git`, branch `feature/channel`)"
 
 SPEC REPOS:
   http://code.paic.com.cn/iosmodules/paspec.git:
+    - PADataManage
+    - PAImageEdit
     - PAPopoverKit
   https://github.com/CocoaPods/Specs.git:
+    - FMDB
     - JUJsonModel
     - JuLayout
     - MBProgressHUD
@@ -219,6 +272,9 @@ EXTERNAL SOURCES:
   PABaseUIKit:
     :branch: develop
     :git: http://code.paic.com.cn/iosmodules/pabaseuikit.git
+  PAImagePick:
+    :branch: feature/channel
+    :git: "ssh://git@code.paic.com.cn:8006/iosmodules/paimagepick.git"
 
 CHECKOUT OPTIONS:
   PABaseProject:
@@ -227,17 +283,24 @@ CHECKOUT OPTIONS:
   PABaseUIKit:
     :commit: 10075e9f694a4d3a4426a0fc9c2350da336a5df6
     :git: http://code.paic.com.cn/iosmodules/pabaseuikit.git
+  PAImagePick:
+    :commit: ccee29e43dc45272c9af7b22e0516170d401cc1d
+    :git: "ssh://git@code.paic.com.cn:8006/iosmodules/paimagepick.git"
 
 SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   JuCamera: a9273cba9628bf79acb9c4a8ee57d06721d2ef29
   JUJsonModel: bc4af80614cc23c84213382281e3c40a37e5bffb
   JuLayout: a00245aa7f3a06f5455184008d4bff413d352704
   MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251
   PABaseProject: 18284dd2e107abd418a63353337f65ff3835ef8c
   PABaseUIKit: a87f93e90ae309204e6c55c7b59b360c9d10c11c
+  PADataManage: 1e0b222d58d894cc32dcc252fdd110b65fa53631
+  PAImageEdit: 5add43c74044fe7fda3e523b67a16537a226d236
+  PAImagePick: e8c5ccc521483bcfda89cf746258fcf57732bf68
   PAPopoverKit: 7cf204d84311da242b58cc101d44ad9cc49fd3fb
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
 
-PODFILE CHECKSUM: b967ada32b28c4ace7fa40ec50475184cc7fccc8
+PODFILE CHECKSUM: 823a3e016b3938ac2bddb602a7fd41f876b4ca52
 
 COCOAPODS: 1.10.1

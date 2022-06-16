@@ -8,41 +8,60 @@
 
 #import "ViewController.h"
 #import "JuTakePhotoCameraVC.h"
-#import "JuRichScanCameraVC.h"
-#import "JuPlayVoice.h"
-#import <AVFoundation/AVFoundation.h>
-@interface ViewController (){
-    JuPlayVoice *ju_playVoice;
+#import "JuScanVC.h"
+//#import "JuPlayVoice.h"
+#import "UIImage+ORCode.h"
+#import "UIImage+PhotoManage.h"
+#import "MBProgressHUD+Share.h"
+#import "JuScanReslutVC.h"
+//#import <AVFoundation/AVFoundation.h>
+@interface ViewController ()<UITextViewDelegate>{
+//    JuPlayVoice *ju_playVoice;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *juImageView;
-@property (nonatomic, strong) AVAudioPlayer *player;
+//@property (nonatomic, strong) AVAudioPlayer *player;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setBarRightItem:@"扫一扫"];
     [self shSetNew:2|1|3];
     // Do any additional setup after loading the view, typically from a nib.
 }
--(void)shSetNew:(NSInteger)index{
-    if(index&3){
-        NSLog(@"3");
-    }
-    if (index&2){
-        NSLog(@"2");
-    }
-    if (index&1){
-        NSLog(@"1");
-    }
-    if (index&4){
-        NSLog(@"4");
-    }
 
+-(void)zlTouchRightItems:(UIButton *)sender{
+    JuScanVC *vc=[[JuScanVC alloc]init];
+    vc.ju_handle = ^(id  _Nullable result) {
+        JuScanReslutVC *vc=[[JuScanReslutVC alloc]init];
+        vc.ju_result=result;
+        [self juPushViewController:vc];
+    };
+    vc.modalPresentationStyle=0;
+    [self presentViewController:vc animated:YES completion:nil];
 }
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqual:@"\n"]) {
+        [textView resignFirstResponder];
+        _juImageView.image=[UIImage juCreatQR:textView.text size:260];
+        return NO;
+    }
+    return YES;
 }
+
+- (IBAction)juTouchSave:(id)sender{
+    UIImage *image=_juImageView.image;
+    if (image) {
+        [image juSaveRHAssetPhoto:^(PHAsset *asset) {
+            if (asset) {
+                [MBProgressHUD juShowHUDText:@"保存成功"];
+            }
+        }];
+    }
+}
+
 - (IBAction)JuTakePhotos:(UIButton *)sender {
     if (sender.tag==1) {
         JuRichScanCameraVC *vc=[[JuRichScanCameraVC alloc]init];
@@ -56,7 +75,20 @@
     }
 }
 
-
+-(void)shSetNew:(NSInteger)index{
+    if(index&3){
+        NSLog(@"3");
+    }
+    if (index&2){
+        NSLog(@"2");
+    }
+    if (index&1){
+        NSLog(@"1");
+    }
+    if (index&4){
+        NSLog(@"4");
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

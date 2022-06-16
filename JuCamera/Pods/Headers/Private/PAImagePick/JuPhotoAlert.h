@@ -1,0 +1,1 @@
+../../../PAImagePick/Source/JuBase/JuPhotoAlert.h

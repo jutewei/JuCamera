@@ -1,0 +1,1 @@
+../../../PAImagePick/Source/JuBase/JuAlbumManage.h

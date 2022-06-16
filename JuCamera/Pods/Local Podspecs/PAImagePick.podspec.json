@@ -1,0 +1,104 @@
+{
+  "name": "PAImagePick",
+  "version": "1.1.6",
+  "summary": "文件选择器 SDK",
+  "homepage": "http://code.paic.com.cn/iosmodules/paimagepick",
+  "authors": {
+    "cmb": "zhutianwei224@pingan.com.cn"
+  },
+  "license": {
+    "type": "Copyright",
+    "text": "    © 2021-2021 pingan. All rights reserved.\n"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "http://code.paic.com.cn/iosmodules/paimagepick.git",
+    "tag": "1.1.6"
+  },
+  "resource_bundles": {
+    "JuPhotoResource": "Source/Resources/*"
+  },
+  "subspecs": [
+    {
+      "name": "JuPicker",
+      "source_files": "Source/*.{h,m}",
+      "dependencies": {
+        "PAImagePick/JuBase": [
+
+        ],
+        "PAImagePick/JuDocument": [
+
+        ],
+        "PAImagePick/JuAlbums": [
+
+        ],
+        "PAImagePick/JuDeal": [
+
+        ]
+      }
+    },
+    {
+      "name": "JuBase",
+      "source_files": "Source/JuBase/*.{h,m}"
+    },
+    {
+      "name": "JuDeal",
+      "source_files": "Source/JuDeal/*.{h,m}",
+      "dependencies": {
+        "PAImagePick/JuBase": [
+
+        ],
+        "PADataManage": [
+
+        ],
+        "PAImageEdit": [
+
+        ]
+      }
+    },
+    {
+      "name": "JuDocument",
+      "source_files": "Source/JuDocument/*.{h,m}"
+    },
+    {
+      "name": "JuAlbums",
+      "dependencies": {
+        "PAImagePick/JuAlbumsPreview": [
+
+        ]
+      },
+      "source_files": "Source/JuAlbums/*.{h,m}"
+    },
+    {
+      "name": "JuAlbumsPreview",
+      "dependencies": {
+        "JuLayout/LayoutObjC": [
+
+        ],
+        "PAImagePick/JuDeal": [
+
+        ]
+      },
+      "source_files": "Source/JuAlbumsPreview/*.{h,m}"
+    },
+    {
+      "name": "JuImagePreview",
+      "dependencies": {
+        "PAImagePick/JuAlbumsPreview": [
+
+        ],
+        "SDWebImage": [
+
+        ]
+      },
+      "source_files": "Source/JuImagePreview/*.{h,m}"
+    },
+    {
+      "name": "Image",
+      "resources": "Source/image/*.png"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+../../../PADataManage/Source/JuURLCache/JuBaseCacheAdapter.h

@@ -1,0 +1,1 @@
+../../../PAImagePick/Source/JuDeal/AVAsset+compress.h

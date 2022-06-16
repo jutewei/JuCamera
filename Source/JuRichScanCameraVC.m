@@ -55,11 +55,14 @@
                 }
             }
         }
+
+        [self juSetReslut:detectionString];
+        
         NSLog(@"扫描结果%@",detectionString);
 //        [self performSelector:@selector(juBack:) withObject:nil afterDelay:0.3];
     }
 }
-
+-(void)juSetReslut:(NSString *)detectionString{}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

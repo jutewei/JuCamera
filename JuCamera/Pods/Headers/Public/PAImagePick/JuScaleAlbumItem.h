@@ -1,0 +1,1 @@
+../../../PAImagePick/Source/JuAlbumsPreview/JuScaleAlbumItem.h

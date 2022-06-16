@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AF0E24EACFC71DAC93AD5D00 /* libPods-JuCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF52E4EF04BE8DB23232C37 /* libPods-JuCamera.a */; };
+		C9A1B31C285B3F5200E2E30A /* JuWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1B319285B3F5200E2E30A /* JuWebVC.m */; };
+		C9A1B31D285B3F5200E2E30A /* JuScanReslutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1B31B285B3F5200E2E30A /* JuScanReslutVC.m */; };
+		C9A1B321285B407200E2E30A /* JuScanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1B320285B407200E2E30A /* JuScanVC.m */; };
 		EB4296481F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */; };
 		EB9CC2D51F974BAA0011BB4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC2D41F974BAA0011BB4D /* main.m */; };
 		EB9CC2D81F974BAA0011BB4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC2D71F974BAA0011BB4D /* AppDelegate.m */; };
@@ -22,6 +25,12 @@
 		18F4DF748B86075994B5E586 /* Pods-JuCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JuCamera.debug.xcconfig"; path = "Target Support Files/Pods-JuCamera/Pods-JuCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		3BF52E4EF04BE8DB23232C37 /* libPods-JuCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JuCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4725ACA379E29B75FCDC6E05 /* Pods-JuCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JuCamera.release.xcconfig"; path = "Target Support Files/Pods-JuCamera/Pods-JuCamera.release.xcconfig"; sourceTree = "<group>"; };
+		C9A1B318285B3F5200E2E30A /* JuScanReslutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuScanReslutVC.h; sourceTree = "<group>"; };
+		C9A1B319285B3F5200E2E30A /* JuWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuWebVC.m; sourceTree = "<group>"; };
+		C9A1B31A285B3F5200E2E30A /* JuWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuWebVC.h; sourceTree = "<group>"; };
+		C9A1B31B285B3F5200E2E30A /* JuScanReslutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuScanReslutVC.m; sourceTree = "<group>"; };
+		C9A1B31F285B407200E2E30A /* JuScanVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JuScanVC.h; sourceTree = "<group>"; };
+		C9A1B320285B407200E2E30A /* JuScanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JuScanVC.m; sourceTree = "<group>"; };
 		EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS-AVFoundation自定义相机详解 - 简书.pdf"; sourceTree = "<group>"; };
 		EB9CC2D01F974BAA0011BB4D /* JuCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JuCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9CC2D41F974BAA0011BB4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +99,12 @@
 				EB9CC2D71F974BAA0011BB4D /* AppDelegate.m */,
 				EB9CC2D91F974BAA0011BB4D /* ViewController.h */,
 				EB9CC2DA1F974BAA0011BB4D /* ViewController.m */,
+				C9A1B318285B3F5200E2E30A /* JuScanReslutVC.h */,
+				C9A1B31B285B3F5200E2E30A /* JuScanReslutVC.m */,
+				C9A1B31F285B407200E2E30A /* JuScanVC.h */,
+				C9A1B320285B407200E2E30A /* JuScanVC.m */,
+				C9A1B31A285B3F5200E2E30A /* JuWebVC.h */,
+				C9A1B319285B3F5200E2E30A /* JuWebVC.m */,
 				EB9CC2DC1F974BAA0011BB4D /* Main.storyboard */,
 				EBA6BCBB1FCFEB8E00A05AFB /* aim_uncapture.mp3 */,
 				EB4296471F98957F002D3EBA /* iOS-AVFoundation自定义相机详解 - 简书.pdf */,
@@ -196,6 +211,10 @@
 				"${PODS_ROOT}/PABaseUIKit/Source/Resource/main_navBarClose@3x.png",
 				"${PODS_ROOT}/PABaseUIKit/Source/Resource/net_refresh@2x.png",
 				"${PODS_ROOT}/PABaseUIKit/Source/Resource/net_refresh@3x.png",
+				"${PODS_CONFIGURATION_BUILD_DIR}/PAImageEdit/PAMosaicResource.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/PAImagePick/JuPhotoResource.bundle",
+				"${PODS_ROOT}/PAImagePick/Source/image/default_bigLoading@2x.png",
+				"${PODS_ROOT}/PAImagePick/Source/image/default_bigLoading@3x.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -206,6 +225,10 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/main_navBarClose@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/net_refresh@2x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/net_refresh@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PAMosaicResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JuPhotoResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/default_bigLoading@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/default_bigLoading@3x.png",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -242,7 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB9CC2DB1F974BAA0011BB4D /* ViewController.m in Sources */,
+				C9A1B31D285B3F5200E2E30A /* JuScanReslutVC.m in Sources */,
+				C9A1B321285B407200E2E30A /* JuScanVC.m in Sources */,
 				EB9CC2D81F974BAA0011BB4D /* AppDelegate.m in Sources */,
+				C9A1B31C285B3F5200E2E30A /* JuWebVC.m in Sources */,
 				EB9CC2D51F974BAA0011BB4D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

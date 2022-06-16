@@ -1,0 +1,1 @@
+../../../PAImageEdit/Source/Compression/UIColor+hexString.h

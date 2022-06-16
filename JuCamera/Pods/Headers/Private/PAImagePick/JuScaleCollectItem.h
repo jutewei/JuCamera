@@ -1,0 +1,1 @@
+../../../PAImagePick/Source/JuImagePreview/JuScaleCollectItem.h
