@@ -1,0 +1,343 @@
+#打包环境  app-store, ad-hoc, enterprise, development
+
+#最开始路径工程绝对路径
+base_Path=$(pwd)
+
+#获取shell Info文件
+
+CONFIG_INFO_PATH=$base_Path/config.plist
+#工程名
+workspace_name=$(/usr/libexec/PlistBuddy -c "Print workspace" "$CONFIG_INFO_PATH")
+workspace_path=$(cd ..;pwd)
+
+echo "当前脚本路径 ${base_Path}"
+
+#workspace路径
+project_path=$(cd $workspace_path ;pwd)
+echo "当前工程路径 ${project_path}"
+
+#获取shell Info文件
+project_name=$(/usr/libexec/PlistBuddy -c "Print project" "$CONFIG_INFO_PATH")
+if [ ! -n "$project_name" ];then
+ project_name=$workspace_name
+fi
+
+scheme_name=$(/usr/libexec/PlistBuddy -c "Print scheme" "$CONFIG_INFO_PATH")
+if [ ! -n "$scheme_name" ];then
+ scheme_name=$project_name
+fi
+
+ipa_name=$(/usr/libexec/PlistBuddy -c "Print ipaname" "$CONFIG_INFO_PATH")
+if [ ! -n "$ipa_name" ];then
+    ipa_name=$project_name
+fi
+
+#打包模式 Debug/Release
+echo "请输入编译环境 0-sit 1-uat 2-release"
+read compileNum
+while([ $compileNum != 0 ] && [ $compileNum != 1 ]&& [ $compileNum != 2 ] && [ $compileNum != -1 ])
+do
+echo "Error! Should enter 0 or 1 or 2"
+echo "Place enter the number you want to export ? [ 1:sit 2:uat 3:release] "
+read number
+done
+
+
+#添加证书
+if [ $compileNum == -1 ];then
+APIEIR="dev"
+elif [ $compileNum == 0 ];then
+APIEIR="sit"
+elif [ $compileNum == 1 ];then
+APIEIR="uat"
+else
+APIEIR="release"
+fi
+
+development_mode=Debug
+
+
+#资源路径
+resource_path=${base_Path}/package/$(date +%Y-%m-%d)
+#build文件夹路径
+build_path=$resource_path/build/${development_mode}
+
+
+
+APPAPI_CONFIG="$compileNum:$APIEIR"
+
+echo '***  修改环境配置文件 '
+PRODUCT_API_PATH=$project_path/$project_name/api.dat
+cat  > ${PRODUCT_API_PATH} << EOF
+$APPAPI_CONFIG
+EOF
+echo '***   修改环境配置文件成功 '
+
+
+
+#打包模式 Debug/Release
+echo "请选择证书环境  1-developer 2-Enterprise"
+read number
+while([ $number != 1 ] && [ $number != 2 ])
+do
+echo "Error! Should enter 1 or 2"
+echo "Place enter the number you want to export ? [ 1:test 2:Enterprise] "
+read number
+done
+
+
+#添加证书
+if [ $number == 1 ];then
+export_Key="development"
+Code_Sign="iPhone Developer"
+IpaSuffix="$APIEIR"
+else
+export_Key="enterprise-Debug"
+
+testExport=$(/usr/libexec/PlistBuddy -c "Print ${export_Key}" "$CONFIG_INFO_PATH")
+
+if [ ! -n "$testExport" ];then
+    export_Key="enterprise"
+fi
+
+Code_Sign="iPhone Distribution"
+IpaSuffix="enterprise_$APIEIR"
+fi
+
+
+#echo "路径 $build_path"
+#修改Info文件
+PRODUCT_INFO_PATH=$project_path/$project_name/Info.plist
+BuildVersion=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PRODUCT_INFO_PATH")
+appVersion=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$PRODUCT_INFO_PATH")
+bundleId=$(/usr/libexec/PlistBuddy -c "Print CFBundleIdentifier" "$PRODUCT_INFO_PATH")
+echo '***BuildVersion  '${BuildVersion}
+echo '***appVersion  ' ${appVersion}
+
+#禁用暗黑模式
+/usr/libexec/PlistBuddy -c 'Add :UIUserInterfaceStyle string "Light"' "$PRODUCT_INFO_PATH"
+
+echo '*** 正在 修改ATS' ${ATSSet}
+# 如果还不存在字典，则先添加字典容器：添加dict的key值   dictkey
+/usr/libexec/PlistBuddy -c 'Delete :NSAppTransportSecurity' "$PRODUCT_INFO_PATH"
+/usr/libexec/PlistBuddy -c 'Add :NSAppTransportSecurity  dict' "$PRODUCT_INFO_PATH"
+# 添加key：value对，如果已经存在字典，不需要经过上一步
+/usr/libexec/PlistBuddy -c 'Add :NSAppTransportSecurity:NSAllowsArbitraryLoads bool true' "$PRODUCT_INFO_PATH"
+echo '***  修改ATS成功 ' ${ATSSet}
+
+Entitlements=$project_path/${project_name}/${scheme_name}.entitlements
+
+#推送配置
+/usr/libexec/PlistBuddy -c 'Delete :aps-environment' "$Entitlements"
+aps_environment=$(/usr/libexec/PlistBuddy -c "Print ${export_Key}:aps-environment" "$CONFIG_INFO_PATH")
+if [  -n "$aps_environment" ];then
+/usr/libexec/PlistBuddy -c 'Add :aps-environment string "development" ' "$Entitlements"
+fi
+
+#添加苹果登录(先删除)
+/usr/libexec/PlistBuddy -c 'Delete :com.apple.developer.applesignin' "$Entitlements"
+applesignin=$(/usr/libexec/PlistBuddy -c "Print ${export_Key}:applesignin" "$CONFIG_INFO_PATH")
+if [  -n "$applesignin" ];then
+/usr/libexec/PlistBuddy -c 'Add :com.apple.developer.applesignin  array' "$Entitlements"
+/usr/libexec/PlistBuddy -c 'Add :com.apple.developer.applesignin: string Default' "$Entitlements"
+fi
+
+
+#link配置
+/usr/libexec/PlistBuddy -c 'Delete :com.apple.developer.associated-domains' "$Entitlements"
+associated_domains=$(/usr/libexec/PlistBuddy -c "Print ${export_Key}:associated-domains" "$CONFIG_INFO_PATH")
+if [  -n "$associated_domains" ];then
+/usr/libexec/PlistBuddy -c 'Add :com.apple.developer.associated-domains  array' "$Entitlements"
+/usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string $associated_domains" "$Entitlements"
+fi
+
+
+#获取BuildSetting 配置
+projectFile=${project_path}/${project_name}.xcodeproj/project.pbxproj
+echo "工程配置文件$projectFile"
+
+function getBuildSettingsConfigure
+{
+    echo "工程配置文件$projectFile"
+#    projectFile="/Users/zhutianwei224/Desktop/TeshDebug/TeshDebug.xcodeproj/project.pbxproj"
+    rootObject=$(/usr/libexec/PlistBuddy -c "Print :rootObject" $projectFile)
+    targetList=$(/usr/libexec/PlistBuddy -c "Print :objects:${rootObject}:targets" $projectFile | sed -e '/Array {/d' -e '/}/d' -e 's/^[ \t]*//')
+    targets=(`echo $targetList`);#括号用于初始化数组,例如arr=(1,2,3)
+    for targetId in ${targets[@]}; do
+        targetName=$(/usr/libexec/PlistBuddy -c "Print :objects:$targetId:name" $projectFile)
+        buildTargetNames=(${buildTargetNames[*]} $targetName)
+        buildConfigurationListId=$(/usr/libexec/PlistBuddy -c "Print :objects:$targetId:buildConfigurationList" $projectFile)
+        buildConfigurationList=$(/usr/libexec/PlistBuddy -c "Print :objects:$buildConfigurationListId:buildConfigurations" "$projectFile" | sed -e '/Array {/d' -e '/}/d' -e 's/^[ \t]*//')
+        buildConfigurations=(`echo $buildConfigurationList`)
+
+        for configurationId in ${buildConfigurations[@]}; do
+            echo "=============================="
+            echo "开始读取配置$configurationId"
+            configurationName=$(/usr/libexec/PlistBuddy -c "Print :objects:$configurationId:name" "$projectFile")
+
+           if [ "$development_mode" == "$configurationName" ];then
+           ##获取版本号
+                if [ "$appVersion" == '$(MARKETING_VERSION)' ];then
+                    appVersion=$(/usr/libexec/PlistBuddy -c "Print :objects:$configurationId:buildSettings:MARKETING_VERSION" "$projectFile" | sed -e '/Array {/d' -e '/}/d' -e 's/^[ \t]*//')
+                fi
+                ##获取bu
+                if [ "$BuildVersion" == '$(CURRENT_PROJECT_VERSION)' ];then
+                    BuildVersion=$(/usr/libexec/PlistBuddy -c "Print :objects:$configurationId:buildSettings:CURRENT_PROJECT_VERSION" "$projectFile" | sed -e '/Array {/d' -e '/}/d' -e 's/^[ \t]*//')
+
+
+                fi
+                
+                ##获取BundleId
+                if [ "$bundleId" == '$(PRODUCT_BUNDLE_IDENTIFIER)' ];then
+                    bundleId=$(/usr/libexec/PlistBuddy -c "Print :objects:$configurationId:buildSettings:PRODUCT_BUNDLE_IDENTIFIER" "$projectFile" | sed -e '/Array {/d' -e '/}/d' -e 's/^[ \t]*//')
+                    #        修改bundleId
+                    if [ -n "$exBundleid" ]; then
+                        /usr/libexec/PlistBuddy -c "Set :objects:$configurationId:buildSettings:PRODUCT_BUNDLE_IDENTIFIER $exBundleid" "$projectFile"
+                        bundleId=$exBundleid
+                    fi
+                fi
+                
+                if [ -n "$exProfile" ]; then
+                    /usr/libexec/PlistBuddy -c "Set :objects:$configurationId:buildSettings:PROVISIONING_PROFILE_SPECIFIER $exProfile" "$projectFile"
+                        bundleId=$exBundleid
+                fi
+                  
+                if [ -n "$teamID" ]; then
+                    /usr/libexec/PlistBuddy -c "Set :objects:$configurationId:buildSettings:DEVELOPMENT_TEAM $teamID" "$projectFile"
+                        bundleId=$exBundleid
+                    /usr/libexec/PlistBuddy -c "Set :objects:$configurationId:buildSettings:CODE_SIGN_IDENTITY $Code_Sign" "$projectFile"
+                        bundleId=$exBundleid
+                fi
+                echo "appVersion:$appVersion $BuildVersion $bundleId"
+          fi
+        done
+    done
+}
+
+
+ExportOptions_path=$base_Path/ExportOptions.plist
+
+method=$(/usr/libexec/PlistBuddy -c "Print ${export_Key}:method" "$CONFIG_INFO_PATH")
+exBundleid=$(/usr/libexec/PlistBuddy -c "Print ${export_Key}:bundleID" "$CONFIG_INFO_PATH")
+exProfile=$(/usr/libexec/PlistBuddy -c "Print ${export_Key}:profile" "$CONFIG_INFO_PATH")
+teamID=$(/usr/libexec/PlistBuddy -c "Print ${export_Key}:teamID" "$CONFIG_INFO_PATH")
+
+echo "证书路径 $ExportOptions_path"
+
+getBuildSettingsConfigure
+
+
+echo '*** 设置ExportOptions '${ExportOptions_path}
+/usr/libexec/PlistBuddy -c "Set :method  ${method}" "$ExportOptions_path"
+/usr/libexec/PlistBuddy -c 'Delete :provisioningProfiles' "$ExportOptions_path"
+/usr/libexec/PlistBuddy -c "Add :provisioningProfiles:${bundleId} string ${exProfile}" "$ExportOptions_path"
+/usr/libexec/PlistBuddy -c "Set :teamID  ${teamID}" "$ExportOptions_path"
+
+echo '***  修改ExportOptions号成功 '
+
+#if [ $BuildVersion <= 0 ];then
+#    NewBuildVersion="1"
+#else
+    NewBuildVersion=`expr $BuildVersion + 1`
+#fi
+
+echo '*** 正在 修改build号 '${NewBuildVersion}
+echo '*** build修改成 '${NewBuildVersion}
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NewBuildVersion" "$PRODUCT_INFO_PATH"
+echo '***  修改build号成功✅✅✅ '
+
+oldAppName=$(/usr/libexec/PlistBuddy -c "Print CFBundleDisplayName" "$PRODUCT_INFO_PATH")
+appname=$(/usr/libexec/PlistBuddy -c "Print appname" "$CONFIG_INFO_PATH")
+if [  -n "$appname" ];then
+    if [ $compileNum == 2 ];then
+        /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName $appname" "$PRODUCT_INFO_PATH"
+    else
+        echo "APP初始名字：$oldAppName"
+        newAppName="$APIEIR$appname"
+        /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName $newAppName" "$PRODUCT_INFO_PATH"
+        echo "APP名字修改为:$newAppName ✅"
+    fi
+fi
+
+echo '*** 正在 清理工程 ***'
+xcodebuild \
+clean -project ${project_path}/${project_name}.xcodeproj \
+-scheme ${scheme_name} \
+-configuration ${development_mode} -quiet  || exit
+echo '*** 清理完成✅✅✅ ***'
+
+
+echo '*** 正在 编译工程 For '${development_mode}
+xcodebuild \
+archive -workspace ${workspace_path}/${workspace_name}.xcworkspace \
+-scheme ${scheme_name} \
+-configuration ${development_mode} \
+-archivePath ${build_path}/${project_name}.xcarchive -quiet  || exit
+echo '*** 编译完成✅✅✅ ***'
+
+#改回原始名称
+if [  -n "$appname" ];then
+    /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName $appname" "$PRODUCT_INFO_PATH"
+fi
+
+exportFilePath=$resource_path/ipa/${development_mode}
+
+
+echo '*** 正在 打包 ***'
+buildIpa(){
+    xcodebuild -exportArchive -archivePath ${build_path}/${project_name}.xcarchive \
+    -configuration ${development_mode} \
+    -exportPath $1 \
+    -exportOptionsPlist $2 \
+    -quiet || exit
+}
+
+buildIpa ${exportFilePath} ${ExportOptions_path}
+
+#包名
+ipaPath="${exportFilePath}/${project_name}.ipa"
+
+
+if [ -e $ipaPath ]; then
+echo "*** .ipa文件已导出✅✅✅ ${ipaPath}***"
+open $exportFilePath
+else
+echo "*** 创建.ipa文件失败❌❌❌ ***"
+fi
+echo '*** 打包完成 ***'
+
+#时间
+ipaDate=$(date +%Y%m%d)
+
+renameIpa="${exportFilePath}/iOS_${ipa_name}_${appVersion}(${NewBuildVersion})_${ipaDate}_${IpaSuffix}.ipa"
+#重命名
+mv $ipaPath $renameIpa
+
+
+function uploadIpa(){
+    PGY_API_KEY=$(/usr/libexec/PlistBuddy -c "Print uploadkey" "$CONFIG_INFO_PATH")
+    PGY_HOST=$(/usr/libexec/PlistBuddy -c "Print uploadhost" "$CONFIG_INFO_PATH")
+    #APK_PATH="/Users/zhangyunzhen171/work/project/newJZ/cgj-channel-car-ios/shell/package/2022-02-23/ipa/Debug"
+    if [ ! -n "$PGY_API_KEY"  ];then
+        echo "请配置上传key和host❌❌❌"
+    else
+        echo "上传配置 ${PGY_API_KEY} ${PGY_HOST}"
+        #APK_PATH="/Users/zhangyunzhen171/work/project/newJZ/cgj-channel-car-ios/shell/package/2022-02-23/ipa/Debug"
+
+        #upload pgy
+        echo "*************************  正在上传ipa包 🚀 🚀 🚀  *************************"
+#        curl -F "file=@${renameIpa}" -F "_api_key=${PGY_API_KEY}" -F "buildUpdateDescription=${APIEIR}环境" ${PGY_HOST}
+        curl -F "file=@${renameIpa}" -F "_api_key=${PGY_API_KEY}" ${PGY_HOST}
+        echo "************************* ✅✅✅Success. Total time: ${SECONDS}s 🎉  🎉  🎉 *************************"
+    fi
+}
+
+
+
+
+#添加证书
+if ([ $compileNum != -1 ]&& [ $number != 1 ]);then
+    uploadIpa
+else
+    echo "不上传包"
+fi

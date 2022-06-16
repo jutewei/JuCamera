@@ -396,7 +396,7 @@
 				INFOPLIST_FILE = JuCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aifubao.JuCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juvid.camera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6a6e5898-4211-4127-a086-4d327ec1ce77";
 				PROVISIONING_PROFILE_SPECIFIER = testAll;
@@ -412,7 +412,7 @@
 				INFOPLIST_FILE = JuCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aifubao.JuCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juvid.camera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
