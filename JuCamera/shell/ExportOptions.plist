@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>method</key>
-	<string>enterprise</string>
+	<string>development</string>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.pazl.qcjr.rentcar.test</key>
-		<string>qcjr_rentcar_test_inhouse_profile</string>
+		<key>com.juvid.camera</key>
+		<string>testAll</string>
 	</dict>
 	<key>signingStyle</key>
 	<string>manual</string>
 	<key>stripSwiftSymbols</key>
 	<true/>
 	<key>teamID</key>
-	<string>5X7QULHX5J</string>
+	<string>5DGTJHKZ77</string>
 	<key>uploadSymbols</key>
 	<true/>
 </dict>
