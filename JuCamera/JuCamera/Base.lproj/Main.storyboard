@@ -100,9 +100,11 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.74971671379013527" green="0.894271263206603" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
+                                            <constraint firstItem="fFq-yu-lP2" firstAttribute="leading" secondItem="m3X-0b-niZ" secondAttribute="leading" constant="15" id="2B7-dP-lo5"/>
                                             <constraint firstAttribute="width" secondItem="m3X-0b-niZ" secondAttribute="height" multiplier="1:1" id="NlO-hU-3sa"/>
                                             <constraint firstItem="fFq-yu-lP2" firstAttribute="centerY" secondItem="m3X-0b-niZ" secondAttribute="centerY" id="P8Z-q8-xxv"/>
                                             <constraint firstAttribute="height" constant="230" id="VOn-9q-kah"/>
+                                            <constraint firstItem="fFq-yu-lP2" firstAttribute="top" secondItem="m3X-0b-niZ" secondAttribute="top" constant="15" id="gbg-Gq-Zhr"/>
                                             <constraint firstItem="fFq-yu-lP2" firstAttribute="centerX" secondItem="m3X-0b-niZ" secondAttribute="centerX" id="iIZ-8A-gkA"/>
                                         </constraints>
                                     </view>
