@@ -42,20 +42,27 @@
     NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
     
     if (features.count == 0) {
-        [MBProgressHUD juShowHUDText:@"未识别出二维码"];
+        [MBProgressHUD juShowHUDText:@"未发现二维码"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self zlTouchLeftItems:nil];
         });
     } else {
+        NSString *resultStr = @"";
         for (int index = 0; index < [features count]; index++) {
             CIQRCodeFeature *feature = [features objectAtIndex:index];
-            NSString *resultStr = feature.messageString;
+            resultStr = feature.messageString;
             if (resultStr.length) {
-                if (self.zl_handleResult) {
-                    self.zl_handleResult(resultStr);
-                }
                 break;
             }
+        }
+        if (resultStr.length==0) {
+            [MBProgressHUD juShowHUDText:@"未识别出内容"];
+            [self zlTouchLeftItems:nil];
+            return;
+        }
+        
+        if (self.zl_handleResult) {
+            self.zl_handleResult(resultStr);
         }
     }
 }

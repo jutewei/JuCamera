@@ -10,6 +10,7 @@
 #import "JuPhotoPickers.h"
 #import "JuDiscernQRVC.h"
 #import "UIImage+PhotoManage.h"
+#import "MBProgressHUD+Share.h"
 
 @interface JuScanVC ()
 
@@ -52,6 +53,7 @@
 }
 
 -(void)juSetReslut:(NSString *)detectionString{
+
     if (self.ju_handle) {
         self.ju_handle(detectionString);
     }
