@@ -92,10 +92,6 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-yu-lP2">
                                                 <rect key="frame" x="15" y="15" width="200" height="200"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="fFq-yu-lP2" secondAttribute="height" multiplier="1:1" id="ofe-Zx-Kha"/>
-                                                    <constraint firstAttribute="width" constant="200" id="xxo-48-8d4"/>
-                                                </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.74971671379013527" green="0.894271263206603" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
@@ -154,6 +150,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ZsQ-U9-VlZ" secondAttribute="trailing" id="LqW-2h-CXf"/>
                                     <constraint firstItem="ZsQ-U9-VlZ" firstAttribute="top" secondItem="m3X-0b-niZ" secondAttribute="bottom" constant="20" id="UIG-Jm-Toy"/>
                                     <constraint firstAttribute="trailing" secondItem="fKX-fl-tSq" secondAttribute="trailing" id="VZ0-8p-o5i"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Htp-FA-eWf" secondAttribute="trailing" constant="20" symbolic="YES" id="aAw-0L-XO8"/>
                                     <constraint firstItem="ZsQ-U9-VlZ" firstAttribute="leading" secondItem="gNr-Oo-UIi" secondAttribute="leading" id="cl4-pC-GUb"/>
                                     <constraint firstItem="fKX-fl-tSq" firstAttribute="top" secondItem="gNr-Oo-UIi" secondAttribute="top" id="mOs-yT-pph"/>
                                     <constraint firstItem="Htp-FA-eWf" firstAttribute="leading" secondItem="fKX-fl-tSq" secondAttribute="leading" constant="5" id="pce-b0-dmh"/>
