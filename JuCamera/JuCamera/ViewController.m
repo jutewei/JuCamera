@@ -46,10 +46,10 @@
     [_juTextView.superview.layer setCornerRadius:10];
     [_juTextView.superview.layer setMasksToBounds:YES];
     
-//    [_juImageView.superview.layer setCornerRadius:5];
-//    [_juImageView.superview.layer setMasksToBounds:YES];
+    [_juImageView.superview.layer setCornerRadius:5];
+    [_juImageView.superview.layer setMasksToBounds:YES];
     
-    _juImageView.superview.backgroundColor=[UIColor whiteColor];
+//    _juImageView.superview.backgroundColor=[UIColor whiteColor];
     
     [_ju_btnScan.layer setCornerRadius:5];
     [_ju_btnScan.layer setMasksToBounds:YES];
