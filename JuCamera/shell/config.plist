@@ -14,6 +14,8 @@
 	<string>JuCamera</string>
 	<key>appname</key>
 	<string></string>
+	<key>environment</key>
+	<string></string>
 	<key>uploadkey</key>
 	<string></string>
 	<key>uploadhost</key>

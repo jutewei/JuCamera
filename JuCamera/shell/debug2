@@ -32,51 +32,47 @@ if [ ! -n "$ipa_name" ];then
     ipa_name=$project_name
 fi
 
-api_environment=$(/usr/libexec/PlistBuddy -c "Print environment" "$CONFIG_INFO_PATH")
+#打包模式 Debug/Release
+echo "请输入编译环境 0-sit 1-uat 2-release"
+read compileNum
+while([ $compileNum != 0 ] && [ $compileNum != 1 ]&& [ $compileNum != 2 ] && [ $compileNum != -1 ])
+do
+echo "Error! Should enter 0 or 1 or 2"
+echo "Place enter the number you want to export ? [ 1:sit 2:uat 3:release] "
+read number
+done
 
 
-if [  -n "$api_environment" ];then
-    #打包模式 Debug/Release
-    echo "请输入编译环境 0-sit 1-uat 2-release"
-    read compileNum
-    while([ $compileNum != 0 ] && [ $compileNum != 1 ]&& [ $compileNum != 2 ] && [ $compileNum != -1 ])
-    do
-    echo "Error! Should enter 0 or 1 or 2"
-    echo "Place enter the number you want to export ? [ 1:sit 2:uat 3:release] "
-    read number
-    done
-#        添加证书
-    if [ $compileNum == -1 ];then
-    APIEIR="dev"
-    elif [ $compileNum == 0 ];then
-    APIEIR="sit"
-    elif [ $compileNum == 1 ];then
-    APIEIR="uat"
-    else
-    APIEIR="release"
-    fi
-
-    APPAPI_CONFIG="$compileNum:$APIEIR"
-    echo "***   开始环境配置"
+#添加证书
+if [ $compileNum == -1 ];then
+APIEIR="dev"
+elif [ $compileNum == 0 ];then
+APIEIR="sit"
+elif [ $compileNum == 1 ];then
+APIEIR="uat"
 else
-    APIEIR=""
-    compileNum=0
-    APPAPI_CONFIG="-1:dev"
-    echo "***   使用默认值环境配置"
+APIEIR="release"
 fi
 
+development_mode=Debug
+
+
+#资源路径
+resource_path=${base_Path}/package/$(date +%Y-%m-%d)
+#build文件夹路径
+build_path=$resource_path/build/${development_mode}
+
+
+
+APPAPI_CONFIG="$compileNum:$APIEIR"
+
+echo '***  修改环境配置文件 '
 PRODUCT_API_PATH=$project_path/$project_name/api.dat
 cat  > ${PRODUCT_API_PATH} << EOF
 $APPAPI_CONFIG
 EOF
 echo '***   修改环境配置文件成功 '
 
-development_mode=Debug
-
-#资源路径
-resource_path=${base_Path}/package/$(date +%Y-%m-%d)
-#build文件夹路径
-build_path=$resource_path/build/${development_mode}
 
 
 #打包模式 Debug/Release
