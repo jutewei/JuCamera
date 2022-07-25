@@ -68,8 +68,10 @@
     nav.modalPresentationStyle=0;
     [self presentViewController:nav animated:YES completion:nil];
 }
+
 -(void)textViewDidChange:(UITextView *)textView{
     _ju_labHint.hidden=textView.text.length;
+    _juImageView.image=nil;
 }
 
 //-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
@@ -82,11 +84,9 @@
 //}
 
 - (IBAction)juTouchSave:(UIButton *)sender{
-
     if(sender.tag==1){
         _juImageView.image=[UIImage juCreatQR:_juTextView.text size:341];
     }else{
-        
         if (_juImageView.image) {
             UIImage *image=[UIImage screenView:_juImageView.superview];
             [image juSaveRHAssetPhoto:^(PHAsset *asset) {

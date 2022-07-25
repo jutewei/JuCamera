@@ -70,23 +70,20 @@
 
 -(void)zlLoadRequest{
     self.zl_url=[self.zl_url juUrlEncoding];
-    if ([self.zl_url hasPrefix:@"http"]) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_zl_url]];
-//        if ([PANetworkStatus sharedNet].zl_connectionRequired) {
-            [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-//        }
-        [self zlSetRequestHeader:request];
-        [request setTimeoutInterval:30];
-        [self.zl_webView loadRequest:request];
-        [self zlSetProgress];
-    }else if([self.zl_url hasPrefix:@"file://"]){
+    if([self.zl_url hasPrefix:@"file://"]){
         NSURL *baseURL = [NSURL URLWithString:self.zl_url];
         [self.zl_webView loadFileURL:baseURL allowingReadAccessToURL:baseURL];
         [self zlSetProgress];
     }
     else{
-        self.title=@"访问页面不存在";
-        [self zlSetStatusView:JUDataLoadStatusFail];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_zl_url]];
+//        if ([PANetworkStatus sharedNet].zl_connectionRequired) {
+            [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+//        }
+        [self zlSetRequestHeader:request];
+        [request setTimeoutInterval:60];
+        [self.zl_webView loadRequest:request];
+        [self zlSetProgress];
     }
 
 }

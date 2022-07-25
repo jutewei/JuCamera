@@ -21,17 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor=[UIColor colorWithWhite:0.98 alpha:1];
 
 //    _ju_textView.textContainerInset=UIEdgeInsetsMake(5, 5, 5, 5);
     [_ju_textView.superview.layer setCornerRadius:10];
     [_ju_textView.superview.layer setMasksToBounds:YES];
     
-    
     [_ju_btnCopy.layer setCornerRadius:10];
     [_ju_btnCopy.layer setMasksToBounds:YES];
-    
     
     [_ju_btnNext.layer setCornerRadius:10];
     [_ju_btnNext.layer setMasksToBounds:YES];
@@ -52,14 +49,14 @@
     [MBProgressHUD juShowHUDText:@"复制成功"];
 }
 - (IBAction)juTouchNext:(id)sender{
-    NSURL *url=[NSURL URLWithString:_ju_result];
-    if ([url.scheme hasPrefix:@"http"]) {
+//    NSURL *url=[NSURL URLWithString:_ju_result];
+//    if ([url.scheme hasPrefix:@"http"]) {
         JuWebVC *vc=[[JuWebVC alloc]init];
         vc.zl_url=_ju_result;
         [self juPushViewController:vc];
-    }else{
-        [[UIApplication sharedApplication]openURL:url];
-    }
+//    }else{
+//        [[UIApplication sharedApplication]openURL:url];
+//    }
 }
 /*
 #pragma mark - Navigation

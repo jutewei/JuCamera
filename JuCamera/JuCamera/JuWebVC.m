@@ -7,6 +7,8 @@
 //
 
 #import "JuWebVC.h"
+#import "JuAlertView+actiont.h"
+#import "NSString+Format.h"
 
 @interface JuWebVC ()
 
@@ -16,8 +18,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImage *image=[UIImage imageNamed:@"show_more"];
+    [self setBarRightItem:image];
+    self.ju_rightBarItem.tintColor=[UIColor blackColor];
+    [self.ju_rightBarItem setImage:image forState:UIControlStateNormal];
+
     // Do any additional setup after loading the view.
 }
+
+-(void)zlTouchRightItems:(UIButton *)sender{
+    NSURL *url=self.zl_webView.URL?:[NSURL URLWithString:self.zl_url];
+    if (!url) return;
+    [JuAlertView juSheetControll:nil actionItems:@[@"复制",@"浏览器打开",@"取消"] handler:^(UIAlertAction *action) {
+        if ([action.title isEqual:@"复制"]) {
+            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+            pasteboard.string=url.absoluteString;
+            [MBProgressHUD juShowHUDText:@"复制成功"];
+        }else if([action.title isEqual:@"浏览器打开"]){
+            [[UIApplication sharedApplication]openURL:url];
+        }
+    }];
+}
+
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     if (navigationAction.targetFrame==nil) {
@@ -26,10 +48,13 @@
         return;
     }
     NSURL* url = navigationAction.request.URL;
-    if (![url.scheme hasPrefix:@"http"]) {
+    if (url.scheme&&![url.scheme hasPrefix:@"http"]) {
         [[UIApplication sharedApplication]openURL:url];
+        zl_loadIngView.ju_loadingType=JuLoadingSuccess;
+        decisionHandler(WKNavigationActionPolicyCancel);
+    }else{
+        decisionHandler(WKNavigationActionPolicyAllow);
     }
-    decisionHandler(WKNavigationActionPolicyAllow);
 }
 /*
 #pragma mark - Navigation
